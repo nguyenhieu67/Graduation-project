@@ -27,7 +27,6 @@ setTimeout(() => {
 
     const tabActive = $(".tab-item.active");
     const line = $(".tabs .line");
-    console.log(line, tabActive);
 
     line.style.left = tabActive.offsetLeft + "px";
     line.style.width = tabActive.offsetWidth + "px";

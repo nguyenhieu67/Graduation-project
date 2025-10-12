@@ -1,1 +1,41 @@
+.about {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 50px 0;
+    background: #c9f7ff;
 
+    &__heading {
+        font-size: 4.8rem;
+        font-weight: 700;
+    }
+
+    &__desc {
+        font-size: 1.8rem;
+        line-height: 150%;
+        width: 700px;
+    }
+
+    &__img {
+        width: 700px;
+        height: 400px;
+        border-radius: 10px;
+        object-fit: cover;
+
+        &--contain {
+            object-fit: contain;
+            background: #fff;
+        }
+    }
+
+    &__text {
+        width: 700px;
+
+        font-size: 1.4rem;
+        font-weight: 400;
+        line-height: 150%;
+        color: #333;
+    }
+}

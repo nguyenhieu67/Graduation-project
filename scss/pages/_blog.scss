@@ -1,1 +1,16 @@
+.blog {
+    &-item {
+        & + .blog-item {
+            margin-top: 30px;
+        }
+    }
 
+    &-item__title {
+        font-size: 2.2rem;
+        margin: 10px 0;
+    }
+
+    &-item__img {
+        object-fit: cover !important;
+    }
+}

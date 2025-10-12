@@ -1,1 +1,108 @@
+.contact {
+    &__desc {
+        width: 500px;
+    }
+}
 
+.contact-form {
+    width: 400px;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 2.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    }
+
+    input,
+    textarea {
+        width: 100%;
+        padding: 0.9rem 1rem;
+        border: 1.5px solid #ccc;
+        border-radius: 0.6rem;
+        font-size: 1rem;
+        font-family: "Noto Sans JP", sans-serif;
+        background-color: #fff;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+        &:focus {
+            outline: none;
+            border-color: #2d89ef;
+            box-shadow: 0 0 6px rgba(45, 137, 239, 0.4);
+        }
+
+        &::placeholder {
+            color: #aaa;
+            font-style: italic;
+        }
+    }
+
+    textarea {
+        resize: vertical;
+        min-height: 150px;
+        line-height: 1.6;
+    }
+
+    .btn {
+        width: 160px;
+        margin: 0 auto;
+        background: linear-gradient(90deg, #2d89ef, #00b5ad);
+        color: #fff;
+        font-weight: 600;
+        font-size: 1.1rem;
+        border: none;
+        border-radius: 0.6rem;
+        padding: 0.8rem 1.2rem;
+        cursor: pointer;
+        transition: background 0.3s ease, transform 0.2s ease;
+
+        &:hover {
+            background: linear-gradient(90deg, #00b5ad, #2d89ef);
+            transform: translateY(-2px);
+        }
+
+        &:active {
+            transform: scale(0.98);
+        }
+    }
+}
+
+.contact-right {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    &__img {
+        width: 100%;
+        height: 300px;
+    }
+
+    &__title {
+        font-size: 2.2rem;
+    }
+
+    &__desc {
+        font-size: 1.4rem;
+        line-height: 150%;
+        font-weight: 400;
+    }
+}
+
+// @media (max-width: 600px) {
+//     .contact-form {
+//         padding: 1.5rem;
+//         gap: 1rem;
+
+//         .btn {
+//             width: 100%;
+//             font-size: 1rem;
+//         }
+//     }
+// }
