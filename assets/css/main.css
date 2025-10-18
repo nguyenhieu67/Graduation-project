@@ -1245,10 +1245,34 @@ strong {
   padding: 50px 0;
 }
 
-.header {
-  background: #c9f7ff;
+.backToTop {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  padding: 10px 18px;
+  font-size: 16px;
+  border: none;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
-.header__top {
+
+.backToTop.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.separate {
+  margin: 30px 0;
+  width: 50%;
+  border: 1px solid #333;
+}
+
+.header {
   position: sticky;
   top: 0;
   z-index: 99999;
@@ -1393,11 +1417,11 @@ strong {
   height: 6px;
   border-radius: 15px;
   background-color: rgba(235, 62, 120, 0.6);
-  transition: all 0.2s ease;
+  transition: all 0.5s ease-in-out;
 }
 
 .hero__heading {
-  margin: 30px 0;
+  margin-bottom: 30px;
   text-align: center;
   font-size: 4.8rem;
   background: linear-gradient(135deg, rgb(255, 97, 100) 50%, rgb(176, 0, 18) 100%);
@@ -1538,7 +1562,6 @@ strong {
 }
 .about__text {
   width: 700px;
-  font-size: 1.4rem;
   font-weight: 400;
   line-height: 150%;
   color: #333;
@@ -1553,7 +1576,7 @@ strong {
   margin-top: 30px;
 }
 .blog-item__title {
-  font-size: 2.2rem;
+  font-size: 3.2rem;
 }
 .blog-item__img {
   object-fit: cover !important;
@@ -1565,7 +1588,7 @@ strong {
 
 .contact-form {
   width: 400px;
-  margin: 40px auto;
+  margin: 40px 8%;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -1711,18 +1734,17 @@ strong {
 .slide-inner {
   display: flex;
   flex-direction: row-reverse;
-  background: #fff;
   border-radius: 20px;
+  background: #ffffff;
+  background: linear-gradient(90deg, rgb(237, 252, 255) 0%, rgb(157, 243, 245) 50%, rgb(0, 212, 255) 100%);
 }
 .slide-img {
   display: block;
+  margin: 5px;
   width: 100%;
   height: 300px;
-  border-radius: 0 20px 20px 0;
+  border-radius: 999px;
   object-fit: cover;
-}
-.slide-link {
-  width: 50%;
 }
 .slide-info {
   margin-right: auto;

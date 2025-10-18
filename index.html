@@ -26,13 +26,15 @@
 
         <!-- CSS -->
         <link rel="stylesheet" href="./assets/css/main.css" />
-        <script src="./js/main.js"></script>
+        <script src="./js/load.js"></script>
     </head>
     <body>
         <header id="header" class="header">
             <script>
                 load("#header", "./templates/header.html");
             </script>
+        </header>
+        <main class="main">
             <div class="container">
                 <div class="hero">
                     <h1 class="hero__heading">私たちの故郷</h1>
@@ -257,12 +259,12 @@
                     </div>
                 </div>
             </div>
-        </header>
-        <main class="main"></main>
+        </main>
         <footer id="footer" class="footer">
             <script>
                 load("#footer", "./templates/footer.html");
             </script>
         </footer>
+        <script src="./js/main.js"></script>
     </body>
 </html>

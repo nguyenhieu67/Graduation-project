@@ -1,18 +1,14 @@
 .header {
-    background: #c9f7ff;
+    position: sticky;
+    top: 0;
+    z-index: 99999;
 
-    &__top {
-        position: sticky;
-        top: 0;
-        z-index: 99999;
-
-        background: linear-gradient(
-            45deg,
-            rgba(250, 218, 97, 1) 0%,
-            rgba(255, 145, 136, 1) 50%,
-            rgba(255, 90, 205, 1) 100%
-        );
-    }
+    background: linear-gradient(
+        45deg,
+        rgba(250, 218, 97, 1) 0%,
+        rgba(255, 145, 136, 1) 50%,
+        rgba(255, 90, 205, 1) 100%
+    );
 
     &__wrap {
         display: flex;
@@ -173,13 +169,13 @@
     height: 6px;
     border-radius: 15px;
     background-color: #eb3e7899;
-    transition: all 0.2s ease;
+    transition: all 0.5s ease-in-out;
 }
 
 // Hero
 .hero {
     &__heading {
-        margin: 30px 0;
+        margin-bottom: 30px;
         text-align: center;
         font-size: 4.8rem;
 
