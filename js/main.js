@@ -26,7 +26,6 @@ const tabActive = $(".tab-item.active");
 const line = $(".tabs .line");
 
 // -------------------------------------------------
-
 document.addEventListener("DOMContentLoaded", () => {
     // === 1️⃣ Tự thêm data-link cho các tab (dựa theo thứ tự) ===
     const tabPaths = [
@@ -64,28 +63,41 @@ document.addEventListener("DOMContentLoaded", () => {
         "contact.html": 4,
     };
 
-    // === 5️⃣ Xác định tab active dựa theo URL ===
-    let activeIndex = 0;
+    // === 5️⃣ Xác định tab active dựa theo URL hoặc localStorage ===
+    let activeIndex = 0; // mặc định Home
+
     if (locationGroup.includes(currentFile)) {
         activeIndex = 2; // nhóm Location
     } else if (pathMap[currentFile] !== undefined) {
         activeIndex = pathMap[currentFile];
-    } else if (localStorage.getItem("activeIndex")) {
-        activeIndex = Number(localStorage.getItem("activeIndex"));
+    } else {
+        const saved = localStorage.getItem("activeIndex");
+        if (saved !== null && !isNaN(saved)) {
+            const idx = Number(saved);
+            if (idx >= 0 && idx < tabs.length) {
+                activeIndex = idx;
+            }
+        }
     }
 
     // === 6️⃣ Active tab và cập nhật line ===
-    $(".tab-item.active")?.classList.remove("active");
-    tabs[activeIndex].classList.add("active");
+    const prevActive = document.querySelector(".tab-item.active");
+    if (prevActive) prevActive.classList.remove("active");
+
+    const targetTab = tabs[activeIndex] || tabs[0];
+    targetTab.classList.add("active");
+
     requestAnimationFrame(() => {
-        line.style.left = tabs[activeIndex].offsetLeft + "px";
-        line.style.width = tabs[activeIndex].offsetWidth + "px";
+        line.style.left = targetTab.offsetLeft + "px";
+        line.style.width = targetTab.offsetWidth + "px";
     });
 
     // === 7️⃣ Khi click tab ===
     tabs.forEach((tab, index) => {
         tab.addEventListener("click", () => {
-            $(".tab-item.active")?.classList.remove("active");
+            document
+                .querySelector(".tab-item.active")
+                ?.classList.remove("active");
             tab.classList.add("active");
 
             line.style.left = tab.offsetLeft + "px";
@@ -120,5 +132,37 @@ document.addEventListener("DOMContentLoaded", () => {
         } else if (pathMap[targetFile] !== undefined) {
             localStorage.setItem("activeIndex", pathMap[targetFile]);
         }
+    });
+});
+
+// Handle Like
+const likeBoxes = document.querySelectorAll(".blog-item__like");
+
+likeBoxes.forEach((likeBox, index) => {
+    const likeIcon = likeBox.querySelector(".blog-item__like--icon");
+    const key = `liked-${index}`;
+
+    let liked = localStorage.getItem(key) === "true";
+
+    if (liked) {
+        likeBox.classList.add("liked");
+        likeIcon.classList.add("liked");
+        likeIcon.src = "./assets/icon/heart-filled.svg";
+    }
+
+    likeBox.addEventListener("click", () => {
+        liked = !liked;
+
+        if (liked) {
+            likeBox.classList.add("liked");
+            likeIcon.classList.add("liked");
+            likeIcon.src = "./assets/icon/heart-filled.svg";
+        } else {
+            likeBox.classList.remove("liked");
+            likeIcon.classList.remove("liked");
+            likeIcon.src = "./assets/icon/like.svg";
+        }
+
+        localStorage.setItem(key, liked);
     });
 });
