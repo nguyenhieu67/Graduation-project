@@ -1,7 +1,9 @@
+@use "../mixin";
+
 .header {
     position: sticky;
     top: 0;
-    z-index: 99999;
+    z-index: 5;
 
     background: linear-gradient(
         45deg,
@@ -13,6 +15,11 @@
     &__wrap {
         display: flex;
         align-items: center;
+
+        @include mixin.screen(md) {
+            justify-content: space-around;
+            padding: 20px 0;
+        }
     }
 }
 
@@ -46,20 +53,131 @@
         gap: 30px;
         height: 50px;
         padding: 0 50px;
+
+        @include mixin.screen(lg) {
+            padding: 0 40px;
+        }
+
+        @include mixin.screen(md) {
+            flex-direction: column;
+            align-items: flex-start;
+
+            margin-top: 30px;
+            padding: 0;
+            height: initial;
+        }
     }
 
     &__item {
         position: relative;
+
+        @include mixin.screen(md) {
+            &:hover > .navbar__link--icon::after {
+                rotate: 90deg;
+            }
+        }
     }
 
     &__link {
+        position: relative;
         font-size: 1.8rem;
         color: #fff;
         padding: 20px 10px;
 
+        @include mixin.screen(md) {
+            color: #000;
+        }
+
+        &--icon {
+            @include mixin.screen(md) {
+                &::after {
+                    content: "▸";
+                    position: absolute;
+                    top: 50%;
+                    translate: 0 -50%;
+                    right: -50%;
+                    padding: 10px;
+                    rotate: 0deg;
+                    transition: rotate 0.3s;
+                }
+            }
+        }
+
         &:hover {
             color: #eee;
+
+            @include mixin.screen(md) {
+                color: #333;
+            }
         }
+    }
+}
+
+// Navbar Mobile
+.navbar {
+    &-close {
+        position: absolute;
+        top: 15px;
+        right: 30px;
+        padding: 10px;
+
+        font-size: 2.4rem;
+    }
+
+    &-menu {
+        flex-direction: column;
+
+        &__icon {
+            width: 28px;
+            height: 28px;
+            object-fit: cover;
+        }
+    }
+
+    &-mobile {
+        display: none;
+        flex-direction: column;
+        padding: 30px;
+
+        color: #000;
+
+        overflow-y: auto;
+        overscroll-behavior: contain;
+
+        &.show {
+            position: fixed;
+            top: 0;
+            right: 0;
+            z-index: 2;
+            display: flex;
+
+            margin-left: auto;
+            width: 80%;
+            height: 100vh;
+
+            border-radius: 20px 0 0 20px;
+            background: #fff;
+        }
+    }
+
+    &-social-mobile {
+        margin-top: auto;
+        padding-top: 20px;
+    }
+}
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+
+    &.show {
+        opacity: 1;
+        visibility: visible;
     }
 }
 
@@ -75,6 +193,12 @@
     width: 140px;
     background: rgba(255, 90, 205, 0.8);
 
+    @include mixin.screen(md) {
+        position: initial;
+        margin-top: 15px;
+        background: #fff;
+    }
+
     > &__item {
         display: inline-block;
         margin: 12px;
@@ -85,6 +209,12 @@
         position: relative;
         color: #333;
 
+        & + .menu__item {
+            @include mixin.screen(md) {
+                margin-top: 8px;
+            }
+        }
+
         &:hover > .sub-menu {
             display: block;
         }
@@ -92,6 +222,15 @@
         &:hover {
             color: #eee;
             background: rgb(255, 145, 136);
+
+            @include mixin.screen(md) {
+                color: initial;
+                background: initial;
+            }
+        }
+
+        &.show > .menu__link::after {
+            rotate: 90deg;
         }
     }
 
@@ -100,6 +239,22 @@
         padding: 10px 16px;
         border-bottom: 1px solid #eee;
         color: #fff;
+
+        @include mixin.screen(md) {
+            padding: 10px;
+
+            border-bottom: none;
+            color: #000;
+
+            &::after {
+                content: "▸";
+                position: absolute;
+                top: 8px;
+                right: 30px;
+                rotate: 0deg;
+                transition: rotate 0.3s;
+            }
+        }
     }
 }
 
@@ -110,9 +265,21 @@
     width: 140px;
     background: rgba(255, 145, 136, 0.8);
 
+    @include mixin.screen(md) {
+        position: initial;
+        margin-left: 15px;
+        border-left: 1px solid #333;
+        background: #fff;
+    }
+
     &__item:hover {
         color: #eee;
         background: rgb(255, 90, 205);
+
+        @include mixin.screen(md) {
+            color: initial;
+            background: initial;
+        }
     }
 
     &__link {
@@ -120,6 +287,13 @@
         padding: 10px 16px;
         color: #fff;
         border-bottom: 1px solid #eee;
+
+        @include mixin.screen(md) {
+            padding: 10px;
+
+            border-bottom: none;
+            color: #000;
+        }
     }
 
     &.sub-menu {

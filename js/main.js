@@ -166,3 +166,38 @@ likeBoxes.forEach((likeBox, index) => {
         localStorage.setItem(key, liked);
     });
 });
+
+// ------------------------------------------
+// Handle modal
+const menuBtn = $(".navbar-menu__icon");
+const mobileNavbar = $(".navbar-mobile");
+const overlay = $(".overlay");
+const closeBtn = $(".navbar-close");
+const navbarIcon = $(".navbar__link--icon");
+
+const activeNavbarIcons = $$(".navbar-mobile .menu__link");
+
+menuBtn.addEventListener("click", () => {
+    mobileNavbar.classList.add("show");
+    overlay.classList.add("show");
+});
+
+const closeMenu = () => {
+    mobileNavbar.classList.remove("show");
+    overlay.classList.remove("show");
+};
+
+closeBtn.addEventListener("click", closeMenu);
+overlay.addEventListener("click", closeMenu);
+
+navbarIcon.addEventListener("click", (e) => {
+    e.preventDefault();
+});
+
+activeNavbarIcons.forEach((item) => {
+    item.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        console.log(e.target);
+    });
+});

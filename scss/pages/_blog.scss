@@ -1,11 +1,9 @@
-:root {
-    --line-height: 150%;
-}
+@use "../mixin";
 
 .blog {
     display: flex;
-    flex-direction: column;
     justify-content: center;
+    flex-direction: column;
     align-items: center;
 
     &__heading {
@@ -19,6 +17,10 @@
         width: 70%;
         font-size: 2rem;
         line-height: var(--line-height);
+
+        @include mixin.screen(lg) {
+            width: 100%;
+        }
     }
 
     &-item {
@@ -27,6 +29,14 @@
         flex-direction: column;
         background: #fff;
         border-radius: 10px;
+
+        @include mixin.screen(lg) {
+            width: 80%;
+        }
+
+        @include mixin.screen(md) {
+            width: 100%;
+        }
 
         & + .blog-item {
             margin-top: 30px;
@@ -45,6 +55,10 @@
 
             border-radius: 10px 10px 0 0;
             object-fit: cover;
+
+            @include mixin.screen(lg) {
+                height: 250px;
+            }
         }
 
         &__inner {
@@ -75,6 +89,10 @@
             font-size: 1.4rem;
             line-height: var(--line-height);
             color: #333;
+
+            @include mixin.screen(md) {
+                -webkit-line-clamp: 2;
+            }
         }
 
         &__separate {

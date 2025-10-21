@@ -1,12 +1,17 @@
 .contact {
     &__desc {
-        width: 500px;
+        width: 70%;
     }
 }
 
+.form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .contact-form {
-    width: 400px;
-    margin: 40px 8%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
