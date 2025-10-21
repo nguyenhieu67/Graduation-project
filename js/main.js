@@ -174,7 +174,6 @@ const mobileNavbar = $(".navbar-mobile");
 const overlay = $(".overlay");
 const closeBtn = $(".navbar-close");
 const navbarIcon = $(".navbar__link--icon");
-
 const activeNavbarIcons = $$(".navbar-mobile .menu__link");
 
 menuBtn.addEventListener("click", () => {
@@ -197,7 +196,5 @@ navbarIcon.addEventListener("click", (e) => {
 activeNavbarIcons.forEach((item) => {
     item.addEventListener("click", (e) => {
         e.preventDefault();
-
-        console.log(e.target);
     });
 });
