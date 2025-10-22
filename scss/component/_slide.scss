@@ -15,7 +15,6 @@
 
 .slidezy-slide {
     flex: 0 0 auto;
-    border-radius: 20px;
 }
 .slidezy-prev,
 .slidezy-next {
@@ -76,7 +75,6 @@
     &-inner {
         display: flex;
         flex-direction: row-reverse;
-        border-radius: 20px;
         background: #ffffff;
         background: linear-gradient(
             90deg,
@@ -84,10 +82,6 @@
             rgba(157, 243, 245, 1) 50%,
             rgba(0, 212, 255, 1) 100%
         );
-
-        @include mixin.screen(md) {
-            border-radius: 0px;
-        }
     }
 
     &-img {

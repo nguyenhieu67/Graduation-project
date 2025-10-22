@@ -70,12 +70,6 @@
 
     &__item {
         position: relative;
-
-        @include mixin.screen(md) {
-            &:hover > .navbar__link--icon::after {
-                rotate: 90deg;
-            }
-        }
     }
 
     &__link {
@@ -95,7 +89,6 @@
                     position: absolute;
                     top: 50%;
                     translate: 0 -50%;
-                    right: -50%;
                     padding: 10px;
                     rotate: 0deg;
                     transition: rotate 0.3s;
@@ -128,35 +121,35 @@
         flex-direction: column;
 
         &__icon {
-            width: 28px;
-            height: 28px;
+            width: 30px;
+            height: 30px;
             object-fit: cover;
         }
     }
 
     &-mobile {
-        display: none;
+        display: flex;
+        position: fixed;
+        top: 0;
+        right: -100%;
         flex-direction: column;
         padding: 30px;
 
+        margin-left: auto;
+        width: 80%;
+        height: 100vh;
+        border-radius: 20px 0 0 20px;
         color: #000;
 
         overflow-y: auto;
         overscroll-behavior: contain;
+        transition: right 0.3s ease-in-out;
+        background: #fff;
 
         &.show {
             position: fixed;
-            top: 0;
             right: 0;
             z-index: 2;
-            display: flex;
-
-            margin-left: auto;
-            width: 80%;
-            height: 100vh;
-
-            border-radius: 20px 0 0 20px;
-            background: #fff;
         }
     }
 
@@ -172,7 +165,9 @@
     background: rgba(0, 0, 0, 0.45);
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.3s ease;
+    transition: opacity, visibility;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
     z-index: 1;
 
     &.show {
@@ -181,8 +176,22 @@
     }
 }
 
-.navbar__item--menu:hover .menu {
+.navbar__item--menu:hover > .menu {
     display: block;
+
+    @include mixin.screen(md) {
+        display: none;
+    }
+}
+
+.navbar__item--menu-mobile.active > .navbar__link--icon::after {
+    rotate: 90deg;
+}
+
+.navbar__item--menu-mobile > .menu.show {
+    @include mixin.screen(md) {
+        display: block;
+    }
 }
 
 .menu {
@@ -217,6 +226,16 @@
 
         &:hover > .sub-menu {
             display: block;
+
+            @include mixin.screen(md) {
+                display: none;
+            }
+        }
+
+        & > .sub-menu.show {
+            @include mixin.screen(md) {
+                display: block;
+            }
         }
 
         &:hover {
@@ -229,7 +248,7 @@
             }
         }
 
-        &.show > .menu__link::after {
+        &.active > .menu__link::after {
             rotate: 90deg;
         }
     }
