@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>ブンタウ-4</title>
+        <title>特産品とお土産</title>
         <!-- Favicon -->
         <link
             rel="icon"
@@ -26,6 +26,17 @@
 
         <!-- CSS -->
         <link rel="stylesheet" href="./assets/css/main.css" />
+        <style>
+            .lists {
+                grid-template-areas:
+                    "card-6 card-1"
+                    "card-2 card-1"
+                    "card-2 card-3"
+                    "card-4 card-3"
+                    "card-4 card-5"
+                    "card-7 card-5";
+            }
+        </style>
 
         <script src="./js/load.js"></script>
     </head>
@@ -35,7 +46,109 @@
         <script>
             load("#header", "./templates/header.html");
         </script>
-        <main class="main"></main>
+        <main class="main">
+            <div class="container">
+                <h2 class="heading">特産品とお土産</h2>
+                <section class="lists">
+                    <!-- Item 1 -->
+                    <article class="item card-1">
+                        <div class="item__thumb">
+                            <img
+                                src="./assets/images/vungtau/一夜干しイカ.jpg"
+                                alt="一夜干しイカ"
+                                class="item__img"
+                            />
+                        </div>
+                        <div class="item__inner">
+                            <h3 class="item__title">一夜干しイカ</h3>
+                            <p class="item__desc">
+                                ブンタウの海風と太陽で作られる一夜干しイカは、柔らかく香り高い逸品です。半日だけ干すことで、旨味が凝縮され、焼くと香ばしい香りが広がります。お酒のつまみとしても人気が高く、地元の人々はこれを「海の贈り物」と呼びます。お土産としても評判で、パッケージ入りのものは持ち帰りにも最適です。
+                            </p>
+                        </div>
+                    </article>
+
+                    <!-- Item 2 -->
+                    <article class="item card-2">
+                        <div class="item__thumb">
+                            <img
+                                src="./assets/images/vungtau/魚醤.png"
+                                alt="魚醤"
+                                class="item__img"
+                            />
+                        </div>
+                        <div class="item__inner">
+                            <h3 class="item__title">魚醤</h3>
+                            <p class="item__desc">
+                                伝統的な製法で作られる魚醤は、ブンタウ近郊の特産品です。天然の魚と塩だけを使い、1年以上熟成させて作られるため、深いコクと香りが特徴です。ベトナム料理に欠かせない調味料であり、家庭の味を支える存在。料理好きな人へのお土産にもぴったりです。
+                            </p>
+                        </div>
+                    </article>
+
+                    <!-- Item 3 -->
+                    <article class="item card-3">
+                        <div class="item__thumb">
+                            <img
+                                src="./assets/images/vungtau/干物と塩漬け魚.jpeg"
+                                alt="干物と塩漬け魚"
+                                class="item__img"
+                            />
+                        </div>
+                        <div class="item__inner">
+                            <h3 class="item__title">干物と塩漬け魚</h3>
+                            <p class="item__desc">
+                                ブンタウの市場では、色とりどりの干し魚や塩漬け魚が並びます。太陽と潮風で乾かした魚は、保存が効くだけでなく、焼くと香ばしい香りが広がります。旅行者にとっては、ブンタウの海を思い出させる味。家庭でも簡単に調理できるため、人気のお土産となっています。
+                            </p>
+                        </div>
+                    </article>
+
+                    <!-- Item 4 -->
+                    <article class="item card-4">
+                        <div class="item__thumb">
+                            <img
+                                src="./assets/images/vungtau/バイン・ボンラン・チュンムイ.jpg"
+                                alt="バイン・ボンラン・チュンムイ"
+                                class="item__img"
+                            />
+                        </div>
+                        <div class="item__inner">
+                            <h3 class="item__title">
+                                バイン・ボンラン・チュンムイ
+                            </h3>
+                            <p class="item__desc">
+                                ふわふわのスポンジケーキに塩漬け卵黄をのせたブンタウ名物スイーツ。甘じょっぱいハーモニーがクセになる一品です。地元のベーカリーでは焼きたてが並び、おしゃれなパッケージ入りも多く、お土産に喜ばれます。ブンタウの優しい風味がぎゅっと詰まったケーキです。
+                            </p>
+                        </div>
+                    </article>
+
+                    <!-- Item 5 -->
+                    <article class="item card-5">
+                        <div class="item__thumb">
+                            <img
+                                src="./assets/images/vungtau/貝殻アクセサリー.jpeg"
+                                alt="貝殻アクセサリー"
+                                class="item__img"
+                            />
+                        </div>
+                        <div class="item__inner">
+                            <h3 class="item__title">貝殻アクセサリー</h3>
+                            <p class="item__desc">
+                                ブンタウの浜辺で拾われた貝殻を使った手作りアクセサリーは、旅の思い出にぴったり。ペンダントやイヤリングなど、一つひとつ形や色が異なり、世界に一つだけの特別な品です。自然の美しさと職人の温かみが感じられる、心のこもったお土産です。
+                            </p>
+                        </div>
+                    </article>
+                    <img
+                        src="./assets/images/vungtau/background.jpg"
+                        alt="background"
+                        class="card-6"
+                    />
+                    <img
+                        src="./assets/images/vungtau/ca-ong.webp"
+                        alt="Ca Ong"
+                        class="card-7"
+                    />
+                </section>
+            </div>
+        </main>
 
         <!-- Footer -->
         <footer id="footer" class="footer">
