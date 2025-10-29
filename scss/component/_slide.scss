@@ -44,7 +44,7 @@
     margin-top: 10px;
     margin-left: 50px;
 
-    @include mixin.screen(md) {
+    @include mixin.screen(lg) {
         justify-content: center;
         margin-top: 20px;
         margin-left: 0;
@@ -59,7 +59,7 @@
     background: #ccc;
     transition: transform 0.3s;
 
-    @include mixin.screen(md) {
+    @include mixin.screen(lg) {
         width: 20px;
     }
 }
@@ -93,7 +93,7 @@
         border-radius: 999px;
         object-fit: cover;
 
-        @include mixin.screen(md) {
+        @include mixin.screen(lg) {
             margin: 0;
             border-radius: 0px;
         }
@@ -105,14 +105,24 @@
         align-self: center;
         padding: 50px;
 
-        @include mixin.screen(lg) {
+        @include mixin.screen(xl) {
             width: 50%;
-            padding: 30px;
+            padding: 20px;
         }
     }
 
     &-title {
         font-size: 3.2rem;
         margin-bottom: 16px;
+    }
+}
+
+.slide-desc {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    overflow: hidden;
+    @include mixin.screen(xl) {
+        -webkit-line-clamp: 3;
     }
 }
