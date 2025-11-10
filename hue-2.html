@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>フエ-2</title>
+        <title>観光地 ＊ 名所</title>
         <!-- Favicon -->
         <link
             rel="icon"
@@ -26,6 +26,17 @@
 
         <!-- CSS -->
         <link rel="stylesheet" href="./assets/css/main.css" />
+        <style>
+            .lists {
+                grid-template-areas:
+                    "card-6 card-1"
+                    "card-2 card-1"
+                    "card-2 card-3"
+                    "card-4 card-3"
+                    "card-4 card-5"
+                    "card-7 card-5";
+            }
+        </style>
 
         <script src="./js/load.js"></script>
     </head>
@@ -35,7 +46,106 @@
         <script>
             load("#header", "./templates/header.html");
         </script>
-        <main class="main"></main>
+        <main class="main">
+            <div class="container">
+                <h2 class="heading">観光地 ＊ 名所</h2>
+
+                <section class="lists">
+                    <!-- Item 1 -->
+                    <article class="item card-1">
+                        <div class="item__thumb">
+                            <img
+                                src="./assets/images/"
+                                alt="フエ王宮"
+                                class="item__img"
+                            />
+                        </div>
+                        <div class="item__inner">
+                            <h3 class="item__title">フエ王宮</h3>
+                            <p class="item__desc">
+                                ユネスコ世界遺産に登録されているフエ王宮は、阮朝時代の壮麗な建築群です。金色の屋根、赤い柱、精巧な装飾が施された門――すべてが美しく保存されています。庭園や池の配置も風水思想に基づいており、建築と自然の調和を感じられます。
+                            </p>
+                        </div>
+                    </article>
+
+                    <!-- Item 2 -->
+                    <article class="item card-2">
+                        <div class="item__thumb">
+                            <img
+                                src="./assets/images/"
+                                alt="ティエンムー寺"
+                                class="item__img"
+                            />
+                        </div>
+                        <div class="item__inner">
+                            <h3 class="item__title">ティエンムー寺</h3>
+                            <p class="item__desc">
+                                香江のほとりに立つ七重塔が印象的な寺院。静寂の中に響く鐘の音は心に染み、訪れる人の心を癒します。夜には灯篭が灯り、川面に映る光景は幻想的そのものです。
+                            </p>
+                        </div>
+                    </article>
+
+                    <!-- Item 3 -->
+                    <article class="item card-3">
+                        <div class="item__thumb">
+                            <img
+                                src="./assets/images/"
+                                alt="フーン川とチャンティエン橋"
+                                class="item__img"
+                            />
+                        </div>
+                        <div class="item__inner">
+                            <h3 class="item__title">
+                                フーン川とチャンティエン橋
+                            </h3>
+                            <p class="item__desc">
+                                フエを象徴する美しい川「フーン川」。特にチャンティエン橋からの夕景は絶景で、オレンジ色の空と川面に映る光が織りなす風景は息をのむほど。川沿いの散歩やボートクルーズもおすすめです。
+                            </p>
+                        </div>
+                    </article>
+
+                    <!-- Item 4 -->
+                    <article class="item card-4">
+                        <div class="item__thumb">
+                            <img
+                                src="./assets/images/"
+                                alt="ミンマン帝陵"
+                                class="item__img"
+                            />
+                        </div>
+                        <div class="item__inner">
+                            <h3 class="item__title">ミンマン帝陵</h3>
+                            <p class="item__desc">
+                                フエ郊外にある帝陵の中でも最も美しいといわれる場所。王の威厳と静けさが共存し、石像や彫刻のひとつひとつに職人の魂が宿っています。春には花が咲き誇り、庭園の中を歩くだけで心が浄化されるようです。
+                            </p>
+                        </div>
+                    </article>
+
+                    <!-- Item 5 -->
+                    <article class="item card-5">
+                        <div class="item__thumb">
+                            <img
+                                src="./assets/images/"
+                                alt="ドンバ市場"
+                                class="item__img"
+                            />
+                        </div>
+                        <div class="item__inner">
+                            <h3 class="item__title">ドンバ市場</h3>
+                            <p class="item__desc">
+                                地元の人々の生活が息づく市場。衣料品、スパイス、果物、屋台料理などが並び、カラフルで活気あふれる雰囲気です。観光客も地元の味と匂いを五感で楽しむことができます。
+                            </p>
+                        </div>
+                    </article>
+                    <img
+                        src="./assets/images/"
+                        alt="background"
+                        class="card-6"
+                    />
+                    <img src="./assets/images/" alt="Ca Ong" class="card-7" />
+                </section>
+            </div>
+        </main>
 
         <!-- Footer -->
         <footer id="footer" class="footer">

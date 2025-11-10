@@ -26,124 +26,6 @@ const tabActive = $(".tab-item.active");
 const line = $(".tabs .line");
 const menus = $$(".tab-item .menu__item");
 
-// -------------------------------------------------
-// Handle active line
-// document.addEventListener("DOMContentLoaded", () => {
-//     const tabPaths = [
-//         "index.html", // 0: Home
-//         "about.html", // 1: About
-//         "location.html", // 2: Location
-//         "blog.html", // 3: Blog
-//         "contact.html", // 4: Contact
-//     ];
-
-//     const locationGroup = [
-//         "haiphong.html",
-//         "daklak.html",
-//         "hue.html",
-//         "china.html",
-//         "vungtau.html",
-//         "hatinh.html",
-//     ];
-
-//     const pathMap = {
-//         "index.html": 0,
-//         "about.html": 1,
-//         "location.html": 2,
-//         "blog.html": 3,
-//         "contact.html": 4,
-//     };
-
-//     tabs.forEach((tab, i) => {
-//         if (!tab.dataset.link && tabPaths[i]) {
-//             tab.dataset.link = tabPaths[i];
-//             console.log(tab, i);
-//         }
-//     });
-
-//     menus.forEach((menu, i) => {
-//         if (!menu.dataset.link && locationGroup[i]) {
-//             menu.dataset.link = locationGroup[i];
-//             console.log(menu, i);
-//         }
-//     });
-
-//     const currentFile = location.pathname.split("/").pop() || "index.html";
-
-//     // === 5️⃣ Xác định tab active dựa theo URL hoặc localStorage ===
-//     let activeIndex = 0; // mặc định Home
-
-//     if (locationGroup.includes(currentFile)) {
-//         activeIndex = 2; // nhóm Location
-//     } else if (pathMap[currentFile] !== undefined) {
-//         activeIndex = pathMap[currentFile];
-//     } else {
-//         const saved = localStorage.getItem("activeIndex");
-//         if (saved !== null && !isNaN(saved)) {
-//             const idx = Number(saved);
-//             if (idx >= 0 && idx < tabs.length) {
-//                 activeIndex = idx;
-//             }
-//         }
-//     }
-
-//     // === 6️⃣ Active tab và cập nhật line ===
-//     const prevActive = document.querySelector(".tab-item.active");
-//     if (prevActive) prevActive.classList.remove("active");
-
-//     const targetTab = tabs[activeIndex] || tabs[0];
-//     targetTab.classList.add("active");
-
-//     requestAnimationFrame(() => {
-//         line.style.left = targetTab.offsetLeft + "px";
-//         line.style.width = targetTab.offsetWidth + "px";
-//     });
-
-//     // === 7️⃣ Khi click tab ===
-//     tabs.forEach((tab, index) => {
-//         tab.addEventListener("click", () => {
-//             document
-//                 .querySelector(".tab-item.active")
-//                 ?.classList.remove("active");
-//             tab.classList.add("active");
-
-//             line.style.left = tab.offsetLeft + "px";
-//             line.style.width = tab.offsetWidth + "px";
-
-//             localStorage.setItem(
-//                 "lineActive",
-//                 JSON.stringify({
-//                     left: tab.offsetLeft + "px",
-//                     width: tab.offsetWidth + "px",
-//                 })
-//             );
-//             localStorage.setItem("activeIndex", index);
-
-//             // // Chuyển trang theo data-link (tương đối)
-//             const href = tab.dataset.link;
-//             console.log(href);
-
-//             // if (href) window.location.href = href;
-//         });
-//     });
-
-//     // === 8️⃣ Khi click link trong nội dung ===
-//     document.addEventListener("click", (e) => {
-//         const link = e.target.closest("a");
-//         if (!link) return;
-
-//         // Lấy tên file cuối cùng (chuẩn hoá tương đối)
-//         const absoluteURL = new URL(link.getAttribute("href"), location.origin);
-//         const targetFile = absoluteURL.pathname.split("/").pop();
-
-//         if (locationGroup.includes(targetFile)) {
-//             localStorage.setItem("activeIndex", 2);
-//         } else if (pathMap[targetFile] !== undefined) {
-//             localStorage.setItem("activeIndex", pathMap[targetFile]);
-//         }
-//     });
-// });
-
 document.addEventListener("DOMContentLoaded", () => {
     const tabPaths = [
         "index.html", // 0: Home
@@ -153,14 +35,12 @@ document.addEventListener("DOMContentLoaded", () => {
         "contact.html", // 4: Contact
     ];
 
-    // --- 1️⃣ Gắn data-link cho tab chính ---
     tabs.forEach((tab, i) => {
         if (!tab.dataset.link && tabPaths[i]) {
             tab.dataset.link = tabPaths[i];
         }
     });
 
-    // --- 2️⃣ Gắn data-link cho menu trong phần Location ---
     const locationGroup = [
         "haiphong.html",
         "daklak.html",
@@ -177,10 +57,8 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // --- 3️⃣ Lấy file hiện tại ---
     const currentFile = location.pathname.split("/").pop() || "index.html";
 
-    // --- 4️⃣ Map tab chính ---
     const pathMap = {
         "index.html": 0,
         "about.html": 1,
@@ -189,10 +67,9 @@ document.addEventListener("DOMContentLoaded", () => {
         "contact.html": 4,
     };
 
-    // --- 5️⃣ Xác định tab active ---
     let activeIndex = 0;
     if (Array.from(menus).some((m) => currentFile === m.dataset.link)) {
-        activeIndex = 2; // Nếu đang ở trang trong nhóm Location
+        activeIndex = 2;
     } else if (pathMap[currentFile] !== undefined) {
         activeIndex = pathMap[currentFile];
     } else {
@@ -203,9 +80,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // --- 6️⃣ Active tab + line ---
     document.querySelector(".tab-item.active")?.classList.remove("active");
-    const targetTab = tabs[activeIndex] || tabs[0];
+
+    const targetTab = tabs[activeIndex] ?? tabs[0];
 
     targetTab.classList.add("active");
 
@@ -214,7 +91,6 @@ document.addEventListener("DOMContentLoaded", () => {
         line.style.width = targetTab.offsetWidth + "px";
     });
 
-    // --- 7️⃣ Khi click tab ---
     tabs.forEach((tab, index) => {
         tab.addEventListener("click", (e) => {
             const anchor = e.target.closest("a");
@@ -237,11 +113,10 @@ document.addEventListener("DOMContentLoaded", () => {
                     } else if (pathMap[file] !== undefined) {
                         localStorage.setItem("activeIndex", pathMap[file]);
                     }
-                    return; // ⚠️ Cho phép browser tự đi link
+                    return;
                 }
             }
 
-            // Nếu click vùng trống tab (li)
             e.preventDefault();
             document
                 .querySelector(".tab-item.active")
@@ -265,7 +140,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // --- 8️⃣ Khi click link trong nội dung hoặc menu ---
     document.addEventListener("click", (e) => {
         const link = e.target.closest("a");
         if (!link) return;
@@ -380,6 +254,10 @@ if (menuBtn) {
                                 ?.classList.remove("show");
                         }
                     });
+
+                if (window.outerWidth <= 768) {
+                    e.preventDefault();
+                }
 
                 subMenu.classList.toggle("show");
                 item.classList.toggle("active");

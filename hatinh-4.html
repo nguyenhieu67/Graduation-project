@@ -26,6 +26,17 @@
 
         <!-- CSS -->
         <link rel="stylesheet" href="./assets/css/main.css" />
+        <style>
+            .lists {
+                grid-template-areas:
+                    "card-6 card-1"
+                    "card-2 card-1"
+                    "card-2 card-3"
+                    "card-4 card-3"
+                    "card-4 card-5"
+                    "card-7 card-5";
+            }
+        </style>
 
         <script src="./js/load.js"></script>
     </head>
@@ -35,7 +46,104 @@
         <script>
             load("#header", "./templates/header.html");
         </script>
-        <main class="main"></main>
+        <main class="main">
+            <div class="container">
+                <h2 class="heading">特産品とお土産</h2>
+
+                <section class="lists">
+                    <!-- Item 1 -->
+                    <article class="item card-1">
+                        <div class="item__thumb">
+                            <img
+                                src="./assets/images/"
+                                alt="フエ刺繍"
+                                class="item__img"
+                            />
+                        </div>
+                        <div class="item__inner">
+                            <h3 class="item__title">フエ刺繍</h3>
+                            <p class="item__desc">
+                                王宮文化から生まれた伝統刺繍。絹糸で丁寧に縫われた花や鳥の模様は、まるで絵画のような美しさです。高品質で、贈り物にも最適です。
+                            </p>
+                        </div>
+                    </article>
+
+                    <!-- Item 2 -->
+                    <article class="item card-2">
+                        <div class="item__thumb">
+                            <img
+                                src="./assets/images/"
+                                alt="フエ陶器"
+                                class="item__img"
+                            />
+                        </div>
+                        <div class="item__inner">
+                            <h3 class="item__title">フエ陶器</h3>
+                            <p class="item__desc">
+                                フエ周辺で作られる陶器は、淡い色合いと繊細な絵付けが特徴です。食器や花瓶など、日常使いにも適しており、旅の思い出として人気があります。
+                            </p>
+                        </div>
+                    </article>
+
+                    <!-- Item 3 -->
+                    <article class="item card-3">
+                        <div class="item__thumb">
+                            <img
+                                src="./assets/images/"
+                                alt="香炉と線香"
+                                class="item__img"
+                            />
+                        </div>
+                        <div class="item__inner">
+                            <h3 class="item__title">香炉と線香</h3>
+                            <p class="item__desc">
+                                仏教文化が根付くフエでは、線香作りが盛んです。手作りの線香は香りが優しく、持ち帰ると家でもフエの静けさを思い出せます。
+                            </p>
+                        </div>
+                    </article>
+
+                    <!-- Item 4 -->
+                    <article class="item card-4">
+                        <div class="item__thumb">
+                            <img
+                                src="./assets/images/"
+                                alt="王宮茶"
+                                class="item__img"
+                            />
+                        </div>
+                        <div class="item__inner">
+                            <h3 class="item__title">王宮茶</h3>
+                            <p class="item__desc">
+                                ハーブや花、果実をブレンドした伝統的なフエの健康茶。香り高く、心を落ち着かせる効果があり、贈り物としても喜ばれます。
+                            </p>
+                        </div>
+                    </article>
+
+                    <!-- Item 5 -->
+                    <article class="item card-5">
+                        <div class="item__thumb">
+                            <img
+                                src="./assets/images/"
+                                alt="手工芸の扇子と紙細工"
+                                class="item__img"
+                            />
+                        </div>
+                        <div class="item__inner">
+                            <h3 class="item__title">手工芸の扇子と紙細工</h3>
+                            <p class="item__desc">
+                                職人の手で作られた扇子や紙のランプは、フエの芸術性を象徴する工芸品。軽くて美しく、観光客に人気の土産です。
+                            </p>
+                        </div>
+                    </article>
+                    <img
+                        src="./assets/images/"
+                        alt="background"
+                        class="card-6"
+                    />
+                    <img src="./assets/images/" alt="Ca Ong" class="card-7" />
+                </section>
+            </div>
+        </main>
 
         <!-- Footer -->
         <footer id="footer" class="footer">

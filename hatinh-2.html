@@ -26,6 +26,17 @@
 
         <!-- CSS -->
         <link rel="stylesheet" href="./assets/css/main.css" />
+        <style>
+            .lists {
+                grid-template-areas:
+                    "card-6 card-1"
+                    "card-2 card-1"
+                    "card-2 card-3"
+                    "card-4 card-3"
+                    "card-4 card-5"
+                    "card-7 card-5";
+            }
+        </style>
 
         <script src="./js/load.js"></script>
     </head>
@@ -35,7 +46,104 @@
         <script>
             load("#header", "./templates/header.html");
         </script>
-        <main class="main"></main>
+        <main class="main">
+            <div class="container">
+                <h2 class="heading">観光地 ＊ 名所</h2>
+
+                <section class="lists">
+                    <!-- Item 1 -->
+                    <article class="item card-1">
+                        <div class="item__thumb">
+                            <img
+                                src="./assets/images/"
+                                alt="Thien Cam ビーチ"
+                                class="item__img"
+                            />
+                        </div>
+                        <div class="item__inner">
+                            <h3 class="item__title">Thien Cam ビーチ</h3>
+                            <p class="item__desc">
+                                ハーティンを代表する観光スポットであるティエンカムビーチは、白い砂浜と透き通る青い海が魅力です。観光客が少なく、自然そのものの美しさを満喫できます。早朝には漁船が行き交い、夕暮れには海に沈む太陽が空を黄金色に染めます。波音と潮風だけが響くその静けさは、まるで時間が止まったような安らぎを与えてくれます。
+                            </p>
+                        </div>
+                    </article>
+
+                    <!-- Item 2 -->
+                    <article class="item card-2">
+                        <div class="item__thumb">
+                            <img
+                                src="./assets/images/"
+                                alt="ホンリン山"
+                                class="item__img"
+                            />
+                        </div>
+                        <div class="item__inner">
+                            <h3 class="item__title">ホンリン山</h3>
+                            <p class="item__desc">
+                                ハーティンの象徴ともいえる山で、ベトナムの詩や歌にもたびたび登場します。山頂からは町と海を一望でき、日の出や霧に包まれた風景は息をのむほど美しいです。登山道には多くの植物や野鳥が見られ、自然観察にも最適です。
+                            </p>
+                        </div>
+                    </article>
+
+                    <!-- Item 3 -->
+                    <article class="item card-3">
+                        <div class="item__thumb">
+                            <img
+                                src="./assets/images/"
+                                alt="グエン・ズー記念館"
+                                class="item__img"
+                            />
+                        </div>
+                        <div class="item__inner">
+                            <h3 class="item__title">グエン・ズー記念館</h3>
+                            <p class="item__desc">
+                                キム・ヴァン・キエウの著者として知られる詩人グエン・ズーの記念館は、ハーティン文化の象徴です。彼の作品と生涯を通じて、ベトナム文学と精神文化の深さを感じることができます。建物は伝統的な木造建築で、静寂に包まれた空間です。
+                            </p>
+                        </div>
+                    </article>
+
+                    <!-- Item 4 -->
+                    <article class="item card-4">
+                        <div class="item__thumb">
+                            <img
+                                src="./assets/images/"
+                                alt="ケーガ灯台"
+                                class="item__img"
+                            />
+                        </div>
+                        <div class="item__inner">
+                            <h3 class="item__title">ケーガ灯台</h3>
+                            <p class="item__desc">
+                                沿岸部に建つこの灯台は、長い歴史を持つ海のシンボル。登ると青く広がる海と空が一体となり、絶景が目の前に広がります。灯台の周辺には小さな漁村が点在し、地元の暮らしと自然の調和が感じられます。
+                            </p>
+                        </div>
+                    </article>
+
+                    <!-- Item 5 -->
+                    <article class="item card-5">
+                        <div class="item__thumb">
+                            <img
+                                src="./assets/images/"
+                                alt="戦争記念公園と英雄の祠"
+                                class="item__img"
+                            />
+                        </div>
+                        <div class="item__inner">
+                            <h3 class="item__title">戦争記念公園と英雄の祠</h3>
+                            <p class="item__desc">
+                                ハーティンにはベトナム戦争時代に戦った兵士を祀る祠や記念公園が多くあります。静かな場所に立つ石碑や銅像には、平和を願う人々の想いが刻まれています。訪れると、命の尊さと今の平和の意味を改めて感じることができます。
+                            </p>
+                        </div>
+                    </article>
+                    <img
+                        src="./assets/images/"
+                        alt="background"
+                        class="card-6"
+                    />
+                    <img src="./assets/images/" alt="Ca Ong" class="card-7" />
+                </section>
+            </div>
+        </main>
 
         <!-- Footer -->
         <footer id="footer" class="footer">
