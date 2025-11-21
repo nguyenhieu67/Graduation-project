@@ -1,5 +1,57 @@
 @use "../mixin";
 
+.breadcrumb {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin: 20px;
+
+    @include mixin.screen(lg) {
+        flex-wrap: wrap;
+    }
+
+    &-link {
+        position: relative;
+        padding: 12px 8px;
+        border-radius: 8px;
+        background: #7bd4e6;
+
+        font-size: 1.8rem;
+
+        @include mixin.screen(xl) {
+            font-size: 1.5rem;
+        }
+
+        @include mixin.screen(md) {
+            padding: 6px;
+        }
+
+        &.active {
+            font-weight: 700;
+            color: #fff;
+            box-shadow: 0 2px 6px rgba(0, 100, 120, 0.25);
+        }
+
+        &.active::after {
+            color: #fff;
+        }
+
+        &::after {
+            content: ">";
+            position: absolute;
+            top: 45%;
+            right: -14px;
+            color: #034250;
+
+            transform: translateY(-50%);
+        }
+
+        &:last-child::after {
+            content: "";
+        }
+    }
+}
+
 .content {
     margin-top: 100px;
     display: flex;

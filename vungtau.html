@@ -36,6 +36,7 @@
             load("#header", "./templates/header.html");
         </script>
         <main class="main">
+            <!-- Slide mobile -->
             <div id="slide-mobile" class="slide-show d-lg-block d-none">
                 <div class="slide-1">
                     <div class="slide-inner">
@@ -83,7 +84,10 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Container -->
             <div class="container">
+                <!-- Slide -->
                 <div id="slide" class="slide-show d-lg-none">
                     <div class="slide-1">
                         <div class="slide-inner">
@@ -169,6 +173,30 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Breadcrumb -->
+                <nav class="breadcrumb">
+                    <a href="./vungtau.html" class="breadcrumb-link"
+                        >ブンタウ</a
+                    >
+                    <a href="vungtau-1.html" class="breadcrumb-link"
+                        >文化と人々</a
+                    >
+                    <a href="vungtau-2.html" class="breadcrumb-link"
+                        >観光地 ＊ 名所</a
+                    >
+                    <a href="vungtau-3.html" class="breadcrumb-link"
+                        >ブンタウのグルメ</a
+                    >
+                    <a href="vungtau-4.html" class="breadcrumb-link"
+                        >特産品とお土産</a
+                    >
+                    <a href="vungtau-5.html" class="breadcrumb-link"
+                        >体験とアクティビティ</a
+                    >
+                </nav>
+
+                <!-- Content -->
                 <section class="content">
                     <!-- Item 1 -->
                     <article class="content-item">
@@ -264,7 +292,7 @@
             </script>
         </footer>
         <script src="./js/slidezy.js"></script>
-        <script src="./js/main.js"></script>
+        <script type="module" src="./js/main.js"></script>
 
         <script>
             const slide = new Slidezy("#slide", {

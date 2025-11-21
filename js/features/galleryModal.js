@@ -51,6 +51,12 @@ export function initGalleryModal() {
         });
     }
 
+    // Close btn
+    const closeBtn = document.createElement("div");
+    closeBtn.innerHTML = "&times;";
+    closeBtn.className = "overlay__close d-none d-md-block";
+    closeBtn.addEventListener("click", closeModal);
+
     function openModal(index) {
         setModalContent(index);
         overlay.classList.add("show");
@@ -67,9 +73,20 @@ export function initGalleryModal() {
     button.className = "overlay__action-btn";
     button.textContent = "再生";
 
-    overlayBtn.appendChild(button);
+    overlayBtn.append(button);
+
+    const buttonMobile = document.createElement("button");
+    buttonMobile.className =
+        "overlay__action-btn action-btn__close d-none d-md-block";
+    buttonMobile.textContent = "キャンセル";
+
+    overlayBtn.append(buttonMobile);
+
+    overlayContent.appendChild(closeBtn);
 
     const actionBtn = $(".overlay__action-btn");
+    const close = $(".action-btn__close");
+    close.addEventListener("click", closeModal);
 
     function startAutoplay() {
         if (timeId) return;

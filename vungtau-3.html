@@ -29,13 +29,30 @@
 
         <script src="./js/load.js"></script>
     </head>
-    <body>
+    <body data-feature="gallery">
         <!-- Header -->
         <header id="header" class="header"></header>
         <script>
             load("#header", "./templates/header.html");
         </script>
         <main class="main">
+            <!-- Breadcrumb -->
+            <nav class="breadcrumb">
+                <a href="./vungtau.html" class="breadcrumb-link">ブンタウ</a>
+                <a href="vungtau-1.html" class="breadcrumb-link">文化と人々</a>
+                <a href="vungtau-2.html" class="breadcrumb-link"
+                    >観光地 ＊ 名所</a
+                >
+                <a href="vungtau-3.html" class="breadcrumb-link"
+                    >ブンタウのグルメ</a
+                >
+                <a href="vungtau-4.html" class="breadcrumb-link"
+                    >特産品とお土産</a
+                >
+                <a href="vungtau-5.html" class="breadcrumb-link"
+                    >体験とアクティビティ</a
+                >
+            </nav>
             <div class="container">
                 <h2 class="heading">ブンタウのグルメ</h2>
                 <section class="lists">
@@ -135,6 +152,21 @@
                     />
                 </section>
             </div>
+            <div class="overlay">
+                <div class="overlay__content">
+                    <div class="overlay__thumbs"></div>
+                    <div class="overlay__body">
+                        <div class="overlay__left">
+                            <img src="" alt="" class="overlay__img" />
+                        </div>
+                        <div class="overlay__right">
+                            <h3 class="overlay__title"></h3>
+                            <p class="overlay__desc"></p>
+                        </div>
+                    </div>
+                    <div class="overlay__btn"></div>
+                </div>
+            </div>
         </main>
 
         <!-- Footer -->
@@ -144,6 +176,6 @@
             </script>
         </footer>
         <script src="./js/slidezy.js"></script>
-        <script src="./js/main.js"></script>
+        <script type="module" src="./js/main.js"></script>
     </body>
 </html>
