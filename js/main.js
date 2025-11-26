@@ -177,36 +177,36 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Handle Like
-const likeBoxes = $$(".blog-item__like");
+// const likeBoxes = $$(".blog-item__like");
 
-likeBoxes.forEach((likeBox, index) => {
-    const likeIcon = likeBox.querySelector(".blog-item__like--icon");
-    const key = `liked-${index}`;
+// likeBoxes.forEach((likeBox, index) => {
+//     const likeIcon = likeBox.querySelector(".blog-item__like--icon");
+//     const key = `liked-${index}`;
 
-    let liked = localStorage.getItem(key) === "true";
+//     let liked = localStorage.getItem(key) === "true";
 
-    if (liked) {
-        likeBox.classList.add("liked");
-        likeIcon.classList.add("liked");
-        likeIcon.src = "./assets/icon/heart-filled.svg";
-    }
+//     if (liked) {
+//         likeBox.classList.add("liked");
+//         likeIcon.classList.add("liked");
+//         likeIcon.src = "./assets/icon/heart-filled.svg";
+//     }
 
-    likeBox.addEventListener("click", () => {
-        liked = !liked;
+//     likeBox.addEventListener("click", () => {
+//         liked = !liked;
 
-        if (liked) {
-            likeBox.classList.add("liked");
-            likeIcon.classList.add("liked");
-            likeIcon.src = "./assets/icon/heart-filled.svg";
-        } else {
-            likeBox.classList.remove("liked");
-            likeIcon.classList.remove("liked");
-            likeIcon.src = "./assets/icon/like.svg";
-        }
+//         if (liked) {
+//             likeBox.classList.add("liked");
+//             likeIcon.classList.add("liked");
+//             likeIcon.src = "./assets/icon/heart-filled.svg";
+//         } else {
+//             likeBox.classList.remove("liked");
+//             likeIcon.classList.remove("liked");
+//             likeIcon.src = "./assets/icon/like.svg";
+//         }
 
-        localStorage.setItem(key, liked);
-    });
-});
+//         localStorage.setItem(key, liked);
+//     });
+// });
 
 // ------------------------------------------
 // Handle modal
@@ -288,4 +288,356 @@ document.addEventListener("DOMContentLoaded", () => {
     if (feature === "typing") initTypingEffect();
     if (feature === "gallery") initGalleryModal();
     if (feature === "flip") initFlipCard();
+});
+
+// Handle blog
+const API_URL = "http://localhost:3000/posts";
+
+// ===== API helpers =====
+async function fetchPosts() {
+    const res = await fetch(API_URL);
+    if (!res.ok) throw new Error("Failed to fetch posts");
+    return res.json();
+}
+
+async function fetchPost(id) {
+    const res = await fetch(`${API_URL}/${id}`);
+    if (!res.ok) throw new Error("Failed to fetch post");
+    return res.json();
+}
+
+async function createPost(post) {
+    const res = await fetch(API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(post),
+    });
+    if (!res.ok) throw new Error("Failed to create post");
+    return res.json();
+}
+
+async function updatePost(id, data) {
+    const res = await fetch(`${API_URL}/${id}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+    });
+    if (!res.ok) throw new Error("Failed to update post");
+    return res.json();
+}
+
+async function deletePost(id) {
+    const res = await fetch(`${API_URL}/${id}`, {
+        method: "DELETE",
+    });
+    if (!res.ok) throw new Error("Failed to delete post");
+}
+
+// ===== UI render =====
+function createPostHTML(post) {
+    const avatar = post.avatar || "./assets/avatar/blog.JPG";
+    const imageSrc = post.image || "./assets/images/blog/blog-1.jpg";
+
+    let liked = false;
+    try {
+        if (typeof localStorage !== "undefined") {
+            liked = localStorage.getItem(`liked-${post.id}`) === "true";
+        }
+    } catch (e) {
+        console.warn("localStorage is not available", e);
+    }
+
+    return `
+    <article class="blog-item">
+        <a href="#!">
+            <img
+                src="${imageSrc}"
+                class="blog-item__img"
+                alt="${post.title}"
+            />
+        </a>
+        <div class="blog-item__wrap">
+            <div class="blog-item__inner">
+                <img
+                    src="${avatar}"
+                    alt="${post.author}"
+                    class="blog-item__avatar"
+                />
+                <div class="blog-item__info">
+                    <h3 class="blog-item__name">${post.author}</h3>
+                    <p class="blog-item__publishedAt">
+                        ${post.date}
+                    </p>
+                </div>
+            </div>
+
+            <a href="#!">
+                <h2 class="blog-item__title">
+                    ${post.title}
+                </h2>
+            </a>
+            <p class="blog-item__desc">
+                ${post.content}
+            </p>
+
+            <div class="blog-item__actions">
+               <div class="blog-item__like ${liked ? "liked" : ""}" 
+                     data-action="like" 
+                     data-id="${post.id}">
+                    <img
+                        src="${
+                            liked
+                                ? "./assets/icon/heart-filled.svg"
+                                : "./assets/icon/like.svg"
+                        }"
+                        alt="Heart"
+                        class="blog-item__like--icon ${liked ? "liked" : ""}"
+                    />
+                </div>
+                <button
+                    class="blog-item__btn blog-item__btn--edit"
+                    data-action="edit"
+                    data-id="${post.id}"
+                >
+                    編集
+                </button>
+                <button
+                    class="blog-item__btn blog-item__btn--delete"
+                    data-action="delete"
+                    data-id="${post.id}"
+                >
+                    削除
+                </button>
+            </div>
+        </div>
+    </article>
+    `;
+}
+
+async function renderPosts() {
+    const container = document.querySelector(".blog-lists");
+    if (!container) return;
+
+    try {
+        const posts = await fetchPosts();
+        posts.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+        container.innerHTML = posts.map(createPostHTML).join("");
+    } catch (err) {
+        console.error(err);
+        container.innerHTML = `<p>記事の読み込みに失敗しました。</p>`;
+    }
+}
+
+// ===== Image helper =====
+function readImageAsBase64(file) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = (e) => resolve(e.target.result);
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+    });
+}
+
+// ===== Form logic  =====
+function setupForm() {
+    const form = document.getElementById("post-form");
+    const titleInput = document.getElementById("title");
+    const contentInput = document.getElementById("content");
+    const fileInput = document.getElementById("image");
+    const idInput = document.getElementById("post-id");
+    const fileTrigger = document.getElementById("file-trigger");
+    const fileName = document.getElementById("file-name");
+    const preview = document.getElementById("preview");
+
+    if (
+        !form ||
+        !titleInput ||
+        !contentInput ||
+        !fileInput ||
+        !fileTrigger ||
+        !fileName ||
+        !preview
+    ) {
+        console.warn("Form elements not found");
+        return;
+    }
+
+    fileTrigger.addEventListener("click", () => fileInput.click());
+
+    fileInput.addEventListener("change", () => {
+        const file = fileInput.files[0];
+
+        if (!file) {
+            fileName.textContent = "ファイルが選択されていません";
+            preview.innerHTML = "";
+            preview.style.display = "none";
+            return;
+        }
+
+        fileName.textContent = file.name;
+
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            preview.innerHTML = `<img src="${e.target.result}" alt="preview" />`;
+            preview.style.display = "flex";
+        };
+        reader.readAsDataURL(file);
+    });
+
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const title = titleInput.value.trim();
+        const content = contentInput.value.trim();
+        const editingId = idInput.value;
+
+        if (!title || !content) return;
+
+        const file = fileInput.files[0];
+
+        const date = new Date().toLocaleDateString("ja-JP", {
+            year: "numeric",
+            month: "short",
+            day: "numeric",
+        });
+
+        try {
+            let base64Image = "";
+            if (file) {
+                base64Image = await readImageAsBase64(file);
+            }
+
+            if (editingId) {
+                // UPDATE
+                let existing = await fetchPost(editingId);
+                const finalImage = base64Image || existing.image || "";
+
+                await updatePost(editingId, {
+                    title,
+                    content,
+                    image: finalImage,
+                });
+            } else {
+                // CREATE
+                const newPost = {
+                    title,
+                    content,
+                    author: "Admin",
+                    createdAt: new Date().toISOString(),
+                    date,
+                    avatar: "./assets/avatar/blog.JPG",
+                    image: base64Image,
+                    like: 0,
+                };
+
+                await createPost(newPost);
+            }
+
+            await renderPosts();
+
+            form.reset();
+            idInput.value = "";
+            fileInput.value = "";
+            fileName.textContent = "ファイルが選択されていません";
+            preview.innerHTML = "";
+            preview.style.display = "none";
+        } catch (err) {
+            console.error(err);
+            alert("投稿に失敗しました。");
+        }
+    });
+}
+
+// ===== Actions list (Edit + Delete) =====
+function setupActions() {
+    const list = document.querySelector(".blog-lists");
+    const form = document.getElementById("post-form");
+    const titleInput = document.getElementById("title");
+    const contentInput = document.getElementById("content");
+    const idInput = document.getElementById("post-id");
+    const fileName = document.getElementById("file-name");
+    const preview = document.getElementById("preview");
+
+    if (!list) return;
+
+    list.addEventListener("click", async (e) => {
+        const btn = e.target.closest("[data-action]");
+        if (!btn) return;
+
+        const id = btn.dataset.id;
+        const action = btn.dataset.action;
+
+        // ===== LIKE =====
+        if (action === "like") {
+            const likeBox = btn;
+            const likeIcon = likeBox.querySelector(".blog-item__like--icon");
+            const key = `liked-${id}`;
+
+            let liked = localStorage.getItem(key) === "true";
+            liked = !liked;
+
+            if (liked) {
+                likeBox.classList.add("liked");
+                likeIcon.classList.add("liked");
+                likeIcon.src = "./assets/icon/heart-filled.svg";
+            } else {
+                likeBox.classList.remove("liked");
+                likeIcon.classList.remove("liked");
+                likeIcon.src = "./assets/icon/like.svg";
+            }
+
+            localStorage.setItem(key, liked);
+
+            try {
+                const post = await fetchPost(id);
+                const newLike = (post.like || 0) + (liked ? 1 : -1);
+                await updatePost(id, { like: Math.max(newLike, 0) });
+            } catch (err) {
+                console.error(err);
+            }
+
+            return;
+        }
+
+        try {
+            if (action === "delete") {
+                await deletePost(id);
+                await renderPosts();
+                return;
+            }
+
+            if (action === "edit") {
+                const post = await fetchPost(id);
+
+                titleInput.value = post.title;
+                contentInput.value = post.content;
+                idInput.value = post.id;
+
+                if (post.image) {
+                    preview.innerHTML = `<img src="${post.image}" alt="preview" />`;
+                    preview.style.display = "flex";
+                    fileName.textContent = "現在の画像が設定されています";
+                } else {
+                    preview.innerHTML = "";
+                    preview.style.display = "none";
+                    fileName.textContent = "ファイルが選択されていません";
+                }
+
+                window.scrollTo({
+                    top: form.offsetTop - 80,
+                    behavior: "smooth",
+                });
+            }
+        } catch (err) {
+            console.error(err);
+            alert("操作に失敗しました。");
+        }
+    });
+}
+
+// ===== Init =====
+document.addEventListener("DOMContentLoaded", () => {
+    setupForm();
+    setupActions();
+    renderPosts();
 });

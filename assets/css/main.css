@@ -1917,7 +1917,7 @@ strong {
   font-weight: 700;
 }
 .blog__desc {
-  margin: 10px 0 50px 0;
+  margin-top: 10px;
   width: 70%;
   font-size: 2rem;
   line-height: var(--line-height);
@@ -1926,6 +1926,11 @@ strong {
   .blog__desc {
     width: 100%;
   }
+}
+.blog-lists {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .blog-item {
   width: 60%;
@@ -1973,14 +1978,15 @@ strong {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  object-fit: contain;
+  object-fit: cover;
 }
 .blog-item__title {
-  margin: 16px 0;
+  margin-top: 8px;
   font-size: 2.4rem;
   line-height: var(--line-height);
 }
 .blog-item__desc {
+  margin-top: 6px;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
@@ -1993,6 +1999,28 @@ strong {
   .blog-item__desc {
     -webkit-line-clamp: 2;
   }
+}
+.blog-item__actions {
+  display: flex;
+  align-items: center;
+  margin-top: 16px;
+}
+.blog-item__btn {
+  margin-left: auto;
+  min-width: 60px;
+  height: 30px;
+  border-radius: 8px;
+  color: #fff;
+  background-color: #ebebeb;
+}
+.blog-item__btn + .blog-item__btn {
+  margin-left: 12px;
+}
+.blog-item__btn--edit {
+  background-color: #65adf9;
+}
+.blog-item__btn--delete {
+  background-color: #fb8960;
 }
 .blog-item__separate {
   margin: 20px 0;
@@ -2047,6 +2075,111 @@ strong {
     transform: scale(1);
   }
 }
+.blog-form {
+  width: 100%;
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 24px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.blog-form__title {
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 10px;
+  color: #222;
+}
+.blog-form__group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.blog-form__label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #444;
+}
+.blog-form__input, .blog-form__textarea, .blog-form__file {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #d4d4d4;
+  border-radius: 8px;
+  background: #fafafa;
+  font-size: 15px;
+  transition: border-color 0.25s ease;
+}
+.blog-form__input:focus, .blog-form__textarea:focus, .blog-form__file:focus {
+  outline: none;
+  border-color: #007aff;
+  background: #fff;
+}
+.blog-form__textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+.blog-form__btn {
+  width: fit-content;
+  align-self: flex-end;
+  padding: 12px 32px;
+  background: #de663b;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+.blog-form__btn:hover {
+  opacity: 0.85;
+}
+.blog-form__upload {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+.blog-form__upload-btn {
+  padding: 10px 18px;
+  background: #007aff;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: opacity 0.2s ease;
+}
+.blog-form__upload-btn:hover {
+  opacity: 0.85;
+}
+.blog-form__file-name {
+  font-size: 14px;
+  color: #555;
+  flex: 1;
+}
+.blog-form__file-input {
+  display: none;
+}
+.blog-form__preview {
+  width: 100%;
+  margin-top: 12px;
+  display: none;
+  justify-content: center;
+}
+.blog-form__preview img {
+  max-width: 230px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  object-fit: cover;
+}
+
 .breadcrumb {
   display: flex;
   justify-content: center;
@@ -2523,6 +2656,11 @@ strong {
   border-radius: 14px;
   cursor: pointer;
 }
+@media (max-width: 767.98px) {
+  .flip-card {
+    height: 250px;
+  }
+}
 .flip-card__inner {
   width: 100%;
   height: 100%;
@@ -2537,6 +2675,7 @@ strong {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 15px;
 }
 .flip-card__front, .flip-card__back {
   position: absolute;
@@ -2551,11 +2690,20 @@ strong {
   height: 90%;
   object-fit: cover;
 }
+@media (max-width: 767.98px) {
+  .flip-card__img {
+    height: 80%;
+  }
+}
 .flip-card__title {
   flex: 1;
-  margin: 20px 0;
   font-size: 2.4rem;
   font-weight: 700;
+}
+@media (max-width: 991.98px) {
+  .flip-card__title {
+    font-size: 1.8rem;
+  }
 }
 .flip-card__back {
   background: rgba(255, 255, 255, 0.3);

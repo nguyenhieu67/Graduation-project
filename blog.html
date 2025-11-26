@@ -44,269 +44,77 @@
                         私たちの目で見て感じたベトナムを、心を込めて書きました。
                     </p>
 
-                    <!-- ダクラク -->
-                    <article class="blog-item">
-                        <a href="#!">
-                            <img
-                                src="./assets/images/blog/blog-1.jpg"
-                                class="blog-item__img"
-                                alt="Coffee"
+                    <!-- Form -->
+                    <form id="post-form" class="blog-form">
+                        <h3 class="blog-form__title">新しい記事を投稿する</h3>
+
+                        <div class="blog-form__group">
+                            <label for="title" class="blog-form__label"
+                                >タイトル</label
+                            >
+                            <input
+                                type="text"
+                                id="title"
+                                class="blog-form__input"
+                                placeholder="記事のタイトル"
+                                required
                             />
-                        </a>
-                        <div class="blog-item__wrap">
-                            <div class="blog-item__inner">
-                                <img
-                                    src="./assets/avatar/Duc Hieu.jpg"
-                                    alt="Duc Hieu"
-                                    class="blog-item__avatar"
-                                />
-                                <div class="blog-item__info">
-                                    <h3 class="blog-item__name">Admin</h3>
-                                    <p class="blog-item__publishedAt">
-                                        Mar 19, 2023
-                                    </p>
-                                </div>
-                            </div>
-
-                            <a href="#!">
-                                <h2 class="blog-item__title">
-                                    ダクラクのコーヒー文化
-                                </h2>
-                            </a>
-                            <p class="blog-item__desc">
-                                ダクラクはベトナム最大のコーヒー産地であり、ブオンマトート市はその中心地です。
-                                朝になると、街の至るところでコーヒーの香りが漂い、地元の人々がゆっくりとした時間を過ごします。
-                                コーヒーはただの飲み物ではなく、人々の生活の一部であり、会話と笑顔をつなぐ文化です。
-                            </p>
-                            <div class="blog-item__like">
-                                <img
-                                    src="./assets/icon/like.svg"
-                                    alt="Heart"
-                                    class="blog-item__like--icon"
-                                />
-                            </div>
                         </div>
-                    </article>
 
-                    <!-- ハイフォン -->
-                    <article class="blog-item">
-                        <a href="#!">
-                            <img
-                                src="./assets/images/blog/blog-1.jpg"
-                                class="blog-item__img"
-                                alt="Coffee"
-                            />
-                        </a>
-                        <div class="blog-item__wrap">
-                            <div class="blog-item__inner">
-                                <img
-                                    src="./assets/avatar/Duc Hieu.jpg"
-                                    alt="Duc Hieu"
-                                    class="blog-item__avatar"
-                                />
-                                <div class="blog-item__info">
-                                    <h3 class="blog-item__name">Admin</h3>
-                                    <p class="blog-item__publishedAt">
-                                        Mar 19, 2023
-                                    </p>
-                                </div>
-                            </div>
-
-                            <a href="#!">
-                                <h2 class="blog-item__title">
-                                    ダクラクのコーヒー文化
-                                </h2>
-                            </a>
-                            <p class="blog-item__desc">
-                                ダクラクはベトナム最大のコーヒー産地であり、ブオンマトート市はその中心地です。
-                                朝になると、街の至るところでコーヒーの香りが漂い、地元の人々がゆっくりとした時間を過ごします。
-                                コーヒーはただの飲み物ではなく、人々の生活の一部であり、会話と笑顔をつなぐ文化です。
-                            </p>
-                            <div class="blog-item__like">
-                                <img
-                                    src="./assets/icon/like.svg"
-                                    alt="Heart"
-                                    class="blog-item__like--icon"
-                                />
-                            </div>
+                        <div class="blog-form__group">
+                            <label for="content" class="blog-form__label"
+                                >内容</label
+                            >
+                            <textarea
+                                id="content"
+                                class="blog-form__textarea"
+                                rows="4"
+                                placeholder="記事の内容を入力してください"
+                                required
+                            ></textarea>
                         </div>
-                    </article>
 
-                    <!-- フエ -->
-                    <article class="blog-item">
-                        <a href="#!">
-                            <img
-                                src="./assets/images/blog/blog-1.jpg"
-                                class="blog-item__img"
-                                alt="Coffee"
-                            />
-                        </a>
-                        <div class="blog-item__wrap">
-                            <div class="blog-item__inner">
-                                <img
-                                    src="./assets/avatar/Duc Hieu.jpg"
-                                    alt="Duc Hieu"
-                                    class="blog-item__avatar"
-                                />
-                                <div class="blog-item__info">
-                                    <h3 class="blog-item__name">Admin</h3>
-                                    <p class="blog-item__publishedAt">
-                                        Mar 19, 2023
-                                    </p>
-                                </div>
-                            </div>
+                        <div class="blog-form__group">
+                            <label class="blog-form__label">画像を選択</label>
 
-                            <a href="#!">
-                                <h2 class="blog-item__title">
-                                    ダクラクのコーヒー文化
-                                </h2>
-                            </a>
-                            <p class="blog-item__desc">
-                                ダクラクはベトナム最大のコーヒー産地であり、ブオンマトート市はその中心地です。
-                                朝になると、街の至るところでコーヒーの香りが漂い、地元の人々がゆっくりとした時間を過ごします。
-                                コーヒーはただの飲み物ではなく、人々の生活の一部であり、会話と笑顔をつなぐ文化です。
-                            </p>
-                            <div class="blog-item__like">
-                                <img
-                                    src="./assets/icon/like.svg"
-                                    alt="Heart"
-                                    class="blog-item__like--icon"
+                            <div class="blog-form__upload">
+                                <button
+                                    type="button"
+                                    id="file-trigger"
+                                    class="blog-form__upload-btn"
+                                >
+                                    ファイルを選択
+                                </button>
+
+                                <span
+                                    id="file-name"
+                                    class="blog-form__file-name"
+                                >
+                                    ファイルが選択されていません
+                                </span>
+
+                                <input
+                                    type="file"
+                                    id="image"
+                                    class="blog-form__file-input"
+                                    accept="image/*"
+                                    hidden
                                 />
                             </div>
+
+                            <div class="blog-form__preview" id="preview"></div>
                         </div>
-                    </article>
 
-                    <!-- ブンタウ -->
-                    <article class="blog-item">
-                        <a href="#!">
-                            <img
-                                src="./assets/images/blog/blog-1.jpg"
-                                class="blog-item__img"
-                                alt="Coffee"
-                            />
-                        </a>
-                        <div class="blog-item__wrap">
-                            <div class="blog-item__inner">
-                                <img
-                                    src="./assets/avatar/Duc Hieu.jpg"
-                                    alt="Duc Hieu"
-                                    class="blog-item__avatar"
-                                />
-                                <div class="blog-item__info">
-                                    <h3 class="blog-item__name">Admin</h3>
-                                    <p class="blog-item__publishedAt">
-                                        Mar 19, 2023
-                                    </p>
-                                </div>
-                            </div>
+                        <input type="hidden" id="post-id" />
 
-                            <a href="#!">
-                                <h2 class="blog-item__title">
-                                    ダクラクのコーヒー文化
-                                </h2>
-                            </a>
-                            <p class="blog-item__desc">
-                                ダクラクはベトナム最大のコーヒー産地であり、ブオンマトート市はその中心地です。
-                                朝になると、街の至るところでコーヒーの香りが漂い、地元の人々がゆっくりとした時間を過ごします。
-                                コーヒーはただの飲み物ではなく、人々の生活の一部であり、会話と笑顔をつなぐ文化です。
-                            </p>
-                            <div class="blog-item__like">
-                                <img
-                                    src="./assets/icon/like.svg"
-                                    alt="Heart"
-                                    class="blog-item__like--icon"
-                                />
-                            </div>
-                        </div>
-                    </article>
+                        <button type="submit" class="blog-form__btn">
+                            投稿する
+                        </button>
+                    </form>
 
-                    <!-- ハーテイン -->
-                    <article class="blog-item">
-                        <a href="#!">
-                            <img
-                                src="./assets/images/blog/blog-1.jpg"
-                                class="blog-item__img"
-                                alt="Coffee"
-                            />
-                        </a>
-                        <div class="blog-item__wrap">
-                            <div class="blog-item__inner">
-                                <img
-                                    src="./assets/avatar/Duc Hieu.jpg"
-                                    alt="Duc Hieu"
-                                    class="blog-item__avatar"
-                                />
-                                <div class="blog-item__info">
-                                    <h3 class="blog-item__name">Admin</h3>
-                                    <p class="blog-item__publishedAt">
-                                        Mar 19, 2023
-                                    </p>
-                                </div>
-                            </div>
-
-                            <a href="#!">
-                                <h2 class="blog-item__title">
-                                    ダクラクのコーヒー文化
-                                </h2>
-                            </a>
-                            <p class="blog-item__desc">
-                                ダクラクはベトナム最大のコーヒー産地であり、ブオンマトート市はその中心地です。
-                                朝になると、街の至るところでコーヒーの香りが漂い、地元の人々がゆっくりとした時間を過ごします。
-                                コーヒーはただの飲み物ではなく、人々の生活の一部であり、会話と笑顔をつなぐ文化です。
-                            </p>
-                            <div class="blog-item__like">
-                                <img
-                                    src="./assets/icon/like.svg"
-                                    alt="Heart"
-                                    class="blog-item__like--icon"
-                                />
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- 中国ーハルビン -->
-                    <article class="blog-item">
-                        <a href="#!">
-                            <img
-                                src="./assets/images/blog/blog-1.jpg"
-                                class="blog-item__img"
-                                alt="Coffee"
-                            />
-                        </a>
-                        <div class="blog-item__wrap">
-                            <div class="blog-item__inner">
-                                <img
-                                    src="./assets/avatar/Duc Hieu.jpg"
-                                    alt="Duc Hieu"
-                                    class="blog-item__avatar"
-                                />
-                                <div class="blog-item__info">
-                                    <h3 class="blog-item__name">Admin</h3>
-                                    <p class="blog-item__publishedAt">
-                                        Mar 19, 2023
-                                    </p>
-                                </div>
-                            </div>
-
-                            <a href="#!">
-                                <h2 class="blog-item__title">
-                                    ダクラクのコーヒー文化
-                                </h2>
-                            </a>
-                            <p class="blog-item__desc">
-                                ダクラクはベトナム最大のコーヒー産地であり、ブオンマトート市はその中心地です。
-                                朝になると、街の至るところでコーヒーの香りが漂い、地元の人々がゆっくりとした時間を過ごします。
-                                コーヒーはただの飲み物ではなく、人々の生活の一部であり、会話と笑顔をつなぐ文化です。
-                            </p>
-                            <div class="blog-item__like">
-                                <img
-                                    src="./assets/icon/like.svg"
-                                    alt="Heart"
-                                    class="blog-item__like--icon"
-                                />
-                            </div>
-                        </div>
-                    </article>
+                    <div class="blog-lists">
+                        <!-- JS render  -->
+                    </div>
                 </section>
             </div>
         </main>
