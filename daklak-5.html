@@ -29,13 +29,147 @@
 
         <script src="./js/load.js"></script>
     </head>
-    <body>
+    <body data-feature="flip">
         <!-- Header -->
         <header id="header" class="header"></header>
         <script>
             load("#header", "./templates/header.html");
         </script>
-        <main class="main"></main>
+        <main class="main">
+            <!-- Breadcrumb -->
+            <nav class="breadcrumb">
+                <a href="./daklak.html" class="breadcrumb-link">ダクラク</a>
+                <a href="./daklak-1.html" class="breadcrumb-link">文化と人々</a>
+                <a href="./daklak-2.html" class="breadcrumb-link"
+                    >観光地 ＊ 名所</a
+                >
+                <a href="./daklak-3.html" class="breadcrumb-link"
+                    >ダクラクのグルメ</a
+                >
+                <a href="./daklak-4.html" class="breadcrumb-link"
+                    >特産品とお土産</a
+                >
+                <a href="./daklak-5.html" class="breadcrumb-link"
+                    >体験とアクティビティ</a
+                >
+            </nav>
+            <div class="container">
+                <h2 class="heading">体験とアクティビティ</h2>
+
+                <section class="lists">
+                    <!-- Item 1 -->
+                    <article class="flip-card card-1">
+                        <div class="flip-card__inner">
+                            <div class="flip-card__front">
+                                <img
+                                    src="./assets/images/daklak/daklak-5.1.png"
+                                    alt="コーヒー農園ツアー"
+                                    class="flip-card__img"
+                                />
+                                <h3 class="flip-card__title">
+                                    コーヒー農園ツアー
+                                </h3>
+                            </div>
+                            <div class="flip-card__back">
+                                <p class="flip-card__desc">
+                                    農園見学では、栽培、収穫、焙煎までの工程を学べ、テイスティングも楽しめます。コーヒーができる過程を体感できる人気ツアーです。
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Item 2 -->
+                    <article class="flip-card card-2">
+                        <div class="flip-card__inner">
+                            <div class="flip-card__front">
+                                <img
+                                    src="./assets/images/daklak/daklak-5.2.png"
+                                    alt="滝とジャングルハイキング"
+                                    class="flip-card__img"
+                                />
+                                <h3 class="flip-card__title">
+                                    滝とジャングルハイキング
+                                </h3>
+                            </div>
+                            <div class="flip-card__back">
+                                <p class="flip-card__desc">
+                                    原生林を歩くハイキングは大自然の息吹を感じられる冒険です。滝の迫力や森の香りが心を癒し、忘れられない体験となります。
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Item 3 -->
+                    <article class="flip-card card-3">
+                        <div class="flip-card__inner">
+                            <div class="flip-card__front">
+                                <img
+                                    src="./assets/images/daklak/daklak-5.3.png"
+                                    alt="ゴング演奏体験"
+                                    class="flip-card__img"
+                                />
+                                <h3 class="flip-card__title">ゴング演奏体験</h3>
+                            </div>
+                            <div class="flip-card__back">
+                                <p class="flip-card__desc">
+                                    民族楽器ゴングの演奏を体験し、リズムと音の迫力を肌で感じられます。祭りの雰囲気を楽しむ貴重な文化体験です。
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Item 4 -->
+                    <article class="flip-card card-4">
+                        <div class="flip-card__inner">
+                            <div class="flip-card__front">
+                                <img
+                                    src="./assets/images/daklak/daklak-5.4.png"
+                                    alt="象乗り体験"
+                                    class="flip-card__img"
+                                />
+                                <h3 class="flip-card__title">象乗り体験</h3>
+                            </div>
+                            <div class="flip-card__back">
+                                <p class="flip-card__desc">
+                                    象の背中に乗って湖畔や森を散策する特別なアクティビティです。ゆっくり揺れる視点から自然を眺める時間は、子どもから大人まで楽しめます。
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Item 5 -->
+                    <article class="flip-card card-5">
+                        <div class="flip-card__inner">
+                            <div class="flip-card__front">
+                                <img
+                                    src="./assets/images/daklak/daklak-5.5.png"
+                                    alt="伝統料理ワークショップ"
+                                    class="flip-card__img"
+                                />
+                                <h3 class="flip-card__title">
+                                    伝統料理ワークショップ
+                                </h3>
+                            </div>
+                            <div class="flip-card__back">
+                                <p class="flip-card__desc">
+                                    地元食材を使った伝統料理を学び、完成した料理を味わう体験です。文化を五感で感じ、思い出に残る時間を過ごせます。
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+                    <img
+                        src="./assets/images/daklak/phong-don.jpg"
+                        alt="background"
+                        class="card-6"
+                    />
+                    <img
+                        src="./assets/images/daklak/daklak-4.4.png"
+                        alt="background"
+                        class="card-7"
+                    />
+                </section>
+            </div>
+        </main>
 
         <!-- Footer -->
         <footer id="footer" class="footer">

@@ -36,12 +36,59 @@
             load("#header", "./templates/header.html");
         </script>
         <main class="main">
+            <div id="slide-mobile" class="slide-show d-lg-block d-none">
+                <div class="slide-1">
+                    <div class="slide-inner">
+                        <img
+                            src="./assets/images/haiphong/ho-chi-minh.png"
+                            alt="ハイフォン大劇場"
+                            class="slide-img"
+                        />
+                    </div>
+                </div>
+                <div class="slide-2">
+                    <div class="slide-inner">
+                        <img
+                            src="./assets/images/haiphong/dao-hon-ba.png"
+                            alt="カットバ島"
+                            class="slide-img"
+                        />
+                    </div>
+                </div>
+                <div class="slide-3">
+                    <div class="slide-inner">
+                        <img
+                            src="./assets/images/haiphong/cang-bien.png"
+                            alt="ドーソン海岸"
+                            class="slide-img"
+                        />
+                    </div>
+                </div>
+                <div class="slide-4">
+                    <div class="slide-inner">
+                        <img
+                            src="./assets/images/haiphong/hai-phong-3.1.png"
+                            alt="バインダー・クア"
+                            class="slide-img"
+                        />
+                    </div>
+                </div>
+                <div class="slide-5">
+                    <div class="slide-inner">
+                        <img
+                            src="./assets/images/haiphong/banh-mi-que.png"
+                            alt="バインミー・カイ"
+                            class="slide-img"
+                        />
+                    </div>
+                </div>
+            </div>
             <div class="container">
-                <div id="slide" class="slide-show">
+                <div id="slide" class="slide-show d-lg-none">
                     <div class="slide-1">
                         <div class="slide-inner">
                             <img
-                                src="./assets/images/haiphong/ハイフォン大劇場.png"
+                                src="./assets/images/haiphong/ho-chi-minh.png"
                                 alt="ハイフォン大劇場"
                                 class="slide-img"
                             />
@@ -59,7 +106,7 @@
                     <div class="slide-2">
                         <div class="slide-inner">
                             <img
-                                src="./assets/images/haiphong/カットバ島.png"
+                                src="./assets/images/haiphong/dao-hon-ba.png"
                                 alt="カットバ島"
                                 class="slide-img"
                             />
@@ -77,7 +124,7 @@
                     <div class="slide-3">
                         <div class="slide-inner">
                             <img
-                                src="./assets/images/haiphong/ドーソン海岸.png"
+                                src="./assets/images/haiphong/cang-bien.png"
                                 alt="ドーソン海岸"
                                 class="slide-img"
                             />
@@ -96,7 +143,7 @@
                     <div class="slide-4">
                         <div class="slide-inner">
                             <img
-                                src="./assets/images/haiphong/バインダー・クア.png"
+                                src="./assets/images/haiphong/hai-phong-3.1.png"
                                 alt="バインダー・クア"
                                 class="slide-img"
                             />
@@ -115,7 +162,7 @@
                     <div class="slide-5">
                         <div class="slide-inner">
                             <img
-                                src="./assets/images/haiphong/バインミー・カイ.png"
+                                src="./assets/images/haiphong/banh-mi-que.png"
                                 alt="バインミー・カイ"
                                 class="slide-img"
                             />
@@ -132,81 +179,111 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Breadcrumb -->
+                <nav class="breadcrumb">
+                    <a href="./haiphong.html" class="breadcrumb-link"
+                        >ハイフォン</a
+                    >
+                    <a href="./haiphong-1.html" class="breadcrumb-link"
+                        >文化と人々</a
+                    >
+                    <a href="./haiphong-2.html" class="breadcrumb-link"
+                        >観光地 ＊ 名所</a
+                    >
+                    <a href="./haiphong-3.html" class="breadcrumb-link"
+                        >ハイフォンのグルメ</a
+                    >
+                    <a href="./haiphong-4.html" class="breadcrumb-link"
+                        >特産品とお土産</a
+                    >
+                    <a href="./haiphong-5.html" class="breadcrumb-link"
+                        >体験とアクティビティ</a
+                    >
+                </nav>
+
+                <!-- Content -->
                 <section class="content">
                     <div class="content-item">
-                        <h2 class="content-item__title">ハイフォン大劇場</h2>
+                        <a href="./haiphong-1.html"
+                            ><h2 class="content-item__title">文化と人々</h2></a
+                        >
                         <img
-                            src="./assets/images/haiphong/ハイフォン大劇場.png"
+                            src="./assets/images/haiphong/hai-phong-1.1.png"
                             class="content-item__img"
-                            alt="ハイフォン大劇場"
+                            alt="文化と人々"
                         />
 
                         <p class="content-item__desc">
-                            ハイフォン大劇場は、市の中心にある歴史的な建物です。
-                            フランス植民地時代に建てられ、美しいフランス風の建築が特徴です。
-                            現在は、音楽会や文化イベントが行われ、多くの人が訪れます。
+                            ハイフォンは「港町の赤い花の街」として知られ、力強さと温かさを併せ持つ人々が暮らしています。港の歴史を背負い、勤勉で誇り高い精神が根付いています。街には赤い花・フラワーロードが象徴的で、やさしく穏やかな雰囲気が漂います。伝統文化を大切にしながらも、近代化やグローバル化を積極的に取り入れ、教育水準も高く、未来に向かって成長し続ける都市です。強いコミュニティの絆があり、お祭りやイベントを通して地域全体が団結する姿を見ることができます。
                         </p>
                     </div>
 
                     <div class="content-item">
-                        <h2 class="content-item__title">カットバ島</h2>
+                        <a href="./haiphong-2.html"
+                            ><h2 class="content-item__title">
+                                観光地 ＊ 名所
+                            </h2></a
+                        >
                         <img
-                            src="./assets/images/haiphong/カットバ島.png"
+                            src="./assets/images/haiphong/hai-phong-2.1.png"
                             class="content-item__img"
-                            alt="カットバ島"
+                            alt="観光地 ＊ 名所"
                         />
 
                         <p class="content-item__desc">
-                            カットバ島は、ハロン湾の近くにある美しい島です。
-                            青い海と山の景色がとてもきれいで、観光客に人気があります。
-                            ビーチで泳いだり、新鮮な海産物を楽しんだりすることができます。
+                            ハイフォンは豊かな自然と文化を誇る観光都市です。透明度の高い海と壮大な岩の景観を楽しめるランハー湾やカットバー島は、世界中の旅行者の注目を集めています。市街地には歴史的建築が残り、ハイフォン大教会や象徴的なフラワーロードが人気です。レジャーに最適なドーソンビーチでは海風に包まれながらゆったり過ごせます。大自然・歴史・街歩きの全てが楽しめる魅力に溢れています。
                         </p>
                     </div>
 
                     <div class="content-item">
-                        <h2 class="content-item__title">
-                            フエの王城フェスティバル
-                        </h2>
+                        <a href="./haiphong-3.html"
+                            ><h2 class="content-item__title">
+                                ハイフォンのグルメ
+                            </h2></a
+                        >
                         <img
-                            src="./assets/images/haiphong/ドーソン海岸.png"
+                            src="./assets/images/haiphong/hai-phong-3.1.png"
                             class="content-item__img"
-                            alt="ドーソン海岸"
+                            alt="ハイフォンのグルメ"
                         />
 
                         <p class="content-item__desc">
-                            ドーソン海岸は、ハイフォン市から少し離れた有名なビーチです。
-                            夏になると、多くの人が海水浴や休暇を楽しみに訪れます。
-                            美しい夕日も見ることができ、リラックスできる場所です。
+                            港町ならではの新鮮な海産物を中心とした料理は、訪れる人々を魅了します。名物のバンクアやネムクアベー、香り豊かな海鮮焼き、さらにハイフォン独自の味付けのフォーなど、多彩な料理が楽しめます。街中には活気ある屋台街が並び、甘味やローカルドリンクを味わいながら街の雰囲気を体験できます。食の豊かさはハイフォンの魅力の大きな要素です。
                         </p>
                     </div>
 
                     <div class="content-item">
-                        <h2 class="content-item__title">バインダー・クア</h2>
+                        <a href="./haiphong-4.html"
+                            ><h2 class="content-item__title">
+                                特産品とお土産
+                            </h2></a
+                        >
                         <img
-                            src="./assets/images/haiphong/バインダー・クア.png"
+                            src="./assets/images/haiphong/hai-phong-4.1.png"
                             class="content-item__img"
-                            alt="バインダー・クア"
+                            alt="特産品とお土産"
                         />
 
                         <p class="content-item__desc">
-                            バインダー・クアは、ハイフォンの名物料理です。
-                            蟹のスープと平たい米麺を使った料理で、香りがよくとてもおいしいです。
-                            地元の人にも観光客にも人気があります。
+                            ハイフォンのお土産は海の恵みが中心で、干しエビや海産加工品は特に人気です。港町ならではの深い味わいの魚醤も料理好きに喜ばれます。赤い花をモチーフにした工芸品は、街の象徴として美しい思い出となるでしょう。また、コーヒーや茶葉、ローカルスイーツなど、おしゃれで実用的な商品も多く、お土産選びが楽しくなる地域です。
                         </p>
                     </div>
 
                     <div class="content-item">
-                        <h2 class="content-item__title">バインミー・カイ</h2>
+                        <a href="./haiphong-5.html"
+                            ><h2 class="content-item__title">
+                                体験とアクティビティ
+                            </h2></a
+                        >
                         <img
-                            src="./assets/images/haiphong/バインミー・カイ.png"
+                            src="./assets/images/haiphong/hai-phong-5.1.png"
                             class="content-item__img"
-                            alt="バインミー・カイ"
+                            alt="体験とアクティビティ"
                         />
 
                         <p class="content-item__desc">
-                            バインミー・カイは、ハイフォンで有名な軽食です。
-                            小さなフランスパンに辛いチリソースとパテを入れたシンプルな味が特徴です。
-                            安くておいしいので、多くの人に愛されています。
+                            港を巡るクルーズや釣り体験、海辺でのBBQは、ハイフォンの魅力を直接味わえる活動です。自転車で街を回ると、地元の生活や街並みをより身近に感じられます。季節ごとに開かれるフェスティバルでは地元の情熱を感じ、島のエコツアーでは自然保護と観光の共存を体験できます。アクティブに過ごしたい旅行者には最適な都市です。
                         </p>
                     </div>
                 </section>
@@ -229,6 +306,15 @@
                 controls: false,
                 autoplay: true,
                 autoplayTimeout: 7000,
+            });
+        </script>
+        <script>
+            const slideMobile = new Slidezy("#slide-mobile", {
+                items: 1,
+                loop: true,
+                controls: false,
+                autoplay: true,
+                autoplayTimeout: 5000,
             });
         </script>
     </body>

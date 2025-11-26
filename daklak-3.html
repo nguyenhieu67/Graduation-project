@@ -29,13 +29,149 @@
 
         <script src="./js/load.js"></script>
     </head>
-    <body>
+    <body data-feature="flip">
         <!-- Header -->
         <header id="header" class="header"></header>
         <script>
             load("#header", "./templates/header.html");
         </script>
-        <main class="main"></main>
+        <main class="main">
+            <!-- Breadcrumb -->
+            <nav class="breadcrumb">
+                <a href="./daklak.html" class="breadcrumb-link">ダクラク</a>
+                <a href="./daklak-1.html" class="breadcrumb-link">文化と人々</a>
+                <a href="./daklak-2.html" class="breadcrumb-link"
+                    >観光地 ＊ 名所</a
+                >
+                <a href="./daklak-3.html" class="breadcrumb-link"
+                    >ダクラクのグルメ</a
+                >
+                <a href="./daklak-4.html" class="breadcrumb-link"
+                    >特産品とお土産</a
+                >
+                <a href="./daklak-5.html" class="breadcrumb-link"
+                    >体験とアクティビティ</a
+                >
+            </nav>
+            <div class="container">
+                <h2 class="heading">ダクラクのグルメ</h2>
+
+                <section class="lists">
+                    <!-- Item 1 -->
+                    <article class="flip-card card-1">
+                        <div class="flip-card__inner">
+                            <div class="flip-card__front">
+                                <img
+                                    src="./assets/images/daklak/daklak-3.1.png"
+                                    alt="ダクラクコーヒー"
+                                    class="flip-card__img"
+                                />
+                                <h3 class="flip-card__title">
+                                    ダクラクコーヒー
+                                </h3>
+                            </div>
+                            <div class="flip-card__back">
+                                <p class="flip-card__desc">
+                                    高原の気候で育ったダクラクコーヒーは、深い苦味と濃厚なコクが特徴です。ベトナム式ドリップ「フィン」で抽出し、練乳と合わせたカフェ・スア・ダーは絶品。香り高い味わいは世界の愛好家にも評価されています。
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Item 2 -->
+                    <article class="flip-card card-2">
+                        <div class="flip-card__inner">
+                            <div class="flip-card__front">
+                                <img
+                                    src="./assets/images/daklak/daklak-3.2.png"
+                                    alt="山のスープ料理"
+                                    class="flip-card__img"
+                                />
+                                <h3 class="flip-card__title">山のスープ料理</h3>
+                            </div>
+                            <div class="flip-card__back">
+                                <p class="flip-card__desc">
+                                    小山岳地域の伝統スープは野菜、ハーブ、肉や魚を煮込んだ素朴で栄養豊富な料理です。自然素材の風味が活き、身体が温まります。民族祭りや家族の集まりで振る舞われる家庭の味として親しまれています。
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Item 3 -->
+                    <article class="flip-card card-3">
+                        <div class="flip-card__inner">
+                            <div class="flip-card__front">
+                                <img
+                                    src="./assets/images/daklak/daklak-3.3.png"
+                                    alt="焼き肉と竹包みご飯"
+                                    class="flip-card__img"
+                                />
+                                <h3 class="flip-card__title">
+                                    焼き肉と竹包みご飯
+                                </h3>
+                            </div>
+                            <div class="flip-card__back">
+                                <p class="flip-card__desc">
+                                    竹筒に米を入れて蒸し上げる香ばしい竹包みご飯と、炭火焼きの肉は人気の郷土料理です。竹の香りがご飯に染み込み、素朴ながら深い味わいが楽しめます。アウトドア料理として観光客にも好評です。
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Item 4 -->
+                    <article class="flip-card card-4">
+                        <div class="flip-card__inner">
+                            <div class="flip-card__front">
+                                <img
+                                    src="./assets/images/daklak/daklak-3.4.png"
+                                    alt="発酵魚ソース料理"
+                                    class="flip-card__img"
+                                />
+                                <h3 class="flip-card__title">
+                                    発酵魚ソース料理
+                                </h3>
+                            </div>
+                            <div class="flip-card__back">
+                                <p class="flip-card__desc">
+                                    発酵魚ソースを使った料理は少数民族に伝わる伝統の味です。独特の香りと旨味が食欲をそそり、野菜や肉と相性抜群。発酵文化が息づく地域の食文化を象徴しています。
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Item 5 -->
+                    <article class="flip-card card-5">
+                        <div class="flip-card__inner">
+                            <div class="flip-card__front">
+                                <img
+                                    src="./assets/images/daklak/daklak-3.5.png"
+                                    alt="トロピカルフルーツと蜂蜜"
+                                    class="flip-card__img"
+                                />
+                                <h3 class="flip-card__title">
+                                    トロピカルフルーツと蜂蜜
+                                </h3>
+                            </div>
+                            <div class="flip-card__back">
+                                <p class="flip-card__desc">
+                                    豊かな自然が育む南国フルーツは甘くジューシーで、天然蜂蜜との組み合わせは贅沢な味わいです。健康食品としても人気で、お土産にも喜ばれます。
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+                    <img
+                        src="./assets/images/daklak/phong-don.jpg"
+                        alt="background"
+                        class="card-6"
+                    />
+                    <img
+                        src="./assets/images/daklak/daklak-4.4.png"
+                        alt="background"
+                        class="card-7"
+                    />
+                </section>
+            </div>
+        </main>
 
         <!-- Footer -->
         <footer id="footer" class="footer">

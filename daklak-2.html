@@ -26,16 +26,155 @@
 
         <!-- CSS -->
         <link rel="stylesheet" href="./assets/css/main.css" />
+        <style>
+            .lists {
+                grid-template-areas:
+                    "card-6 card-1"
+                    "card-2 card-1"
+                    "card-2 card-3"
+                    "card-4 card-3"
+                    "card-4 card-5"
+                    "card-7 card-5";
+            }
+        </style>
 
         <script src="./js/load.js"></script>
     </head>
-    <body>
+    <body data-feature="flip">
         <!-- Header -->
         <header id="header" class="header"></header>
         <script>
             load("#header", "./templates/header.html");
         </script>
-        <main class="main"></main>
+        <main class="main">
+            <!-- Breadcrumb -->
+            <nav class="breadcrumb">
+                <a href="./daklak.html" class="breadcrumb-link">ダクラク</a>
+                <a href="./daklak-1.html" class="breadcrumb-link">文化と人々</a>
+                <a href="./daklak-2.html" class="breadcrumb-link"
+                    >観光地 ＊ 名所</a
+                >
+                <a href="./daklak-3.html" class="breadcrumb-link"
+                    >ダクラクのグルメ</a
+                >
+                <a href="./daklak-4.html" class="breadcrumb-link"
+                    >特産品とお土産</a
+                >
+                <a href="./daklak-5.html" class="breadcrumb-link"
+                    >体験とアクティビティ</a
+                >
+            </nav>
+            <div class="container">
+                <h2 class="heading">観光地 ＊ 名所</h2>
+
+                <section class="lists">
+                    <!-- Item 1 -->
+                    <article class="flip-card card-1">
+                        <div class="flip-card__inner">
+                            <div class="flip-card__front">
+                                <img
+                                    src="./assets/images/daklak/daklak-2.1.png"
+                                    alt="ドンエレク湖"
+                                    class="flip-card__img"
+                                />
+                                <h3 class="flip-card__title">ドンエレク湖</h3>
+                            </div>
+                            <div class="flip-card__back">
+                                <p class="flip-card__desc">
+                                    ドンエレク湖は高原に広がる静かな湖で、朝の霧に包まれた景色は幻想的です。湖畔の少数民族村や象乗り体験、カヌー遊覧など、自然と文化を楽しめる人気スポットです。夕暮れの水面に映る光景は、訪れる人々を魅了します。
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- Item 2 -->
+                    <article class="flip-card card-2">
+                        <div class="flip-card__inner">
+                            <div class="flip-card__front">
+                                <img
+                                    src="./assets/images/daklak/daklak-2.2.png"
+                                    alt="ドライヌール滝"
+                                    class="flip-card__img"
+                                />
+                                <h3 class="flip-card__title">ドライヌール滝</h3>
+                            </div>
+                            <div class="flip-card__back">
+                                <p class="flip-card__desc">
+                                    ドライヌール滝は力強い水流と白い水煙が迫力満点の名瀑です。周囲は原生林に囲まれ、歩道を散策するとマイナスイオンが身体を癒します。滝のトンネルを探検できる場所もあり、大自然のエネルギーを間近で感じられる場所です。
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Item 3 -->
+                    <article class="flip-card card-3">
+                        <div class="flip-card__inner">
+                            <div class="flip-card__front">
+                                <img
+                                    src="./assets/images/daklak/daklak-2.3.png"
+                                    alt="コーヒー博物館"
+                                    class="flip-card__img"
+                                />
+                                <h3 class="flip-card__title">コーヒー博物館</h3>
+                            </div>
+                            <div class="flip-card__back">
+                                <p class="flip-card__desc">
+                                    ユニークな建築が目を引くコーヒー博物館では、世界とベトナムのコーヒーの歴史、栽培、焙煎技術を学ぶことができます。伝統楽器や生活用品も展示され、文化とコーヒーの深い結びつきを体感できます。カフェでは最高品質の味が楽しめます。
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Item 4 -->
+                    <article class="flip-card card-4">
+                        <div class="flip-card__inner">
+                            <div class="flip-card__front">
+                                <img
+                                    src="./assets/images/daklak/daklak-2.4.png"
+                                    alt="バンメトート市街"
+                                    class="flip-card__img"
+                                />
+                                <h3 class="flip-card__title">
+                                    バンメトート市街
+                                </h3>
+                            </div>
+                            <div class="flip-card__back">
+                                <p class="flip-card__desc">
+                                    バンメトート市街はダクラクの中心都市で、活気ある市場やカフェ、ナイトスポットが集まっています。ストリートフードを味わいながら、地元の生活文化を感じられる魅力的な場所です。コーヒーの街として知られ、香り豊かなカフェ巡りも楽しめます。
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- Item 5 -->
+                    <article class="flip-card card-5">
+                        <div class="flip-card__inner">
+                            <div class="flip-card__front">
+                                <img
+                                    src="./assets/images/daklak/daklak-2.5.png"
+                                    alt="民族村の見学"
+                                    class="flip-card__img"
+                                />
+                                <h3 class="flip-card__title">民族村の見学</h3>
+                            </div>
+                            <div class="flip-card__back">
+                                <p class="flip-card__desc">
+                                    民族村では伝統的な住居、工芸、民族衣装、儀式などを直接見学できます。住民との交流や体験型プログラムも豊富で、伝統文化が息づくリアルな暮らしに触れられます。観光客にとって文化理解を深める貴重な機会です。
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+                    <img
+                        src="./assets/images/daklak/phong-don.jpg"
+                        alt="background"
+                        class="card-6"
+                    />
+                    <img
+                        src="./assets/images/daklak/daklak-4.4.png"
+                        alt="background"
+                        class="card-7"
+                    />
+                </section>
+            </div>
+        </main>
 
         <!-- Footer -->
         <footer id="footer" class="footer">

@@ -26,16 +26,161 @@
 
         <!-- CSS -->
         <link rel="stylesheet" href="./assets/css/main.css" />
+        <style>
+            .lists {
+                grid-template-areas:
+                    "card-6 card-1"
+                    "card-2 card-1"
+                    "card-2 card-3"
+                    "card-4 card-3"
+                    "card-4 card-5"
+                    "card-7 card-5";
+            }
+        </style>
 
         <script src="./js/load.js"></script>
     </head>
-    <body>
+    <body data-feature="flip">
         <!-- Header -->
         <header id="header" class="header"></header>
         <script>
             load("#header", "./templates/header.html");
         </script>
-        <main class="main"></main>
+        <main class="main">
+            <!-- Breadcrumb -->
+            <nav class="breadcrumb">
+                <a href="./daklak.html" class="breadcrumb-link">ダクラク</a>
+                <a href="./daklak-1.html" class="breadcrumb-link">文化と人々</a>
+                <a href="./daklak-2.html" class="breadcrumb-link"
+                    >観光地 ＊ 名所</a
+                >
+                <a href="./daklak-3.html" class="breadcrumb-link"
+                    >ダクラクのグルメ</a
+                >
+                <a href="./daklak-4.html" class="breadcrumb-link"
+                    >特産品とお土産</a
+                >
+                <a href="./daklak-5.html" class="breadcrumb-link"
+                    >体験とアクティビティ</a
+                >
+            </nav>
+            <div class="container">
+                <h2 class="heading">特産品とお土産</h2>
+
+                <section class="lists">
+                    <!-- Item 1 -->
+                    <article class="flip-card card-1">
+                        <div class="flip-card__inner">
+                            <div class="flip-card__front">
+                                <img
+                                    src="./assets/images/daklak/daklak-4.1.png"
+                                    alt="コーヒー豆とドリップセット"
+                                    class="flip-card__img"
+                                />
+                                <h3 class="flip-card__title">
+                                    コーヒー豆とドリップセット
+                                </h3>
+                            </div>
+                            <div class="flip-card__back">
+                                <p class="flip-card__desc">
+                                    高品質のアラビカ・ロブスタ豆やドリップセットは、最も人気のお土産です。自宅で本場の味を再現でき、コーヒー好きに喜ばれます。
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Item 2 -->
+                    <article class="flip-card card-2">
+                        <div class="flip-card__inner">
+                            <div class="flip-card__front">
+                                <img
+                                    src="./assets/images/daklak/daklak-4.2.png"
+                                    alt="天然蜂蜜"
+                                    class="flip-card__img"
+                                />
+                                <h3 class="flip-card__title">天然蜂蜜</h3>
+                            </div>
+                            <div class="flip-card__back">
+                                <p class="flip-card__desc">
+                                    高原植物から採れる天然蜂蜜は香り豊かで栄養価が高く、健康食品として重宝されています。お土産としても人気があります。
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Item 3 -->
+                    <article class="flip-card card-3">
+                        <div class="flip-card__inner">
+                            <div class="flip-card__front">
+                                <img
+                                    src="./assets/images/daklak/daklak-4.3.png"
+                                    alt="手織り布と民族アクセサリー"
+                                    class="flip-card__img"
+                                />
+                                <h3 class="flip-card__title">
+                                    手織り布と民族アクセサリー
+                                </h3>
+                            </div>
+                            <div class="flip-card__back">
+                                <p class="flip-card__desc">
+                                    民族女性による手織り布は色彩豊かで、スカーフやバッグ、アクセサリーとして加工されます。伝統技術の温かさが伝わる品です。
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Item 4 -->
+                    <article class="flip-card card-4">
+                        <div class="flip-card__inner">
+                            <div class="flip-card__front">
+                                <img
+                                    src="./assets/images/daklak/daklak-4.4.png"
+                                    alt="竹細工と木彫り"
+                                    class="flip-card__img"
+                                />
+                                <h3 class="flip-card__title">竹細工と木彫り</h3>
+                            </div>
+                            <div class="flip-card__back">
+                                <p class="flip-card__desc">
+                                    竹や木を使った工芸品は、生活道具から装飾品まで種類が豊富で、素朴な美しさが魅力です。職人の技が光る手作り品として人気です。
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Item 5 -->
+                    <article class="flip-card card-5">
+                        <div class="flip-card__inner">
+                            <div class="flip-card__front">
+                                <img
+                                    src="./assets/images/daklak/daklak-4.5.png"
+                                    alt="ハーブティーと高原茶"
+                                    class="flip-card__img"
+                                />
+                                <h3 class="flip-card__title">
+                                    ハーブティーと高原茶
+                                </h3>
+                            </div>
+                            <div class="flip-card__back">
+                                <p class="flip-card__desc">
+                                    高原で採れるハーブや茶葉から作られたお茶は、健康とリラックス効果があります。爽やかな香りと軽い飲み口が特徴です。
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+                    <img
+                        src="./assets/images/daklak/phong-don.jpg"
+                        alt="background"
+                        class="card-6"
+                    />
+                    <img
+                        src="./assets/images/daklak/daklak-4.4.png"
+                        alt="background"
+                        class="card-7"
+                    />
+                </section>
+            </div>
+        </main>
 
         <!-- Footer -->
         <footer id="footer" class="footer">

@@ -36,6 +36,62 @@
             load("#header", "./templates/header.html");
         </script>
         <main class="main">
+            <div id="slide-mobile" class="slide-show d-lg-block d-none">
+                <!-- Slide 1-->
+                <div class="slide-1">
+                    <div class="slide-inner">
+                        <img
+                            src="./assets/images/hue/hue.png"
+                            alt="フエの王城"
+                            class="slide-img"
+                        />
+                    </div>
+                </div>
+
+                <!-- Slide 2-->
+                <div class="slide-2">
+                    <div class="slide-inner">
+                        <img
+                            src="./assets/images/hue/cau-hue.png"
+                            alt="トゥオンティエン橋"
+                            class="slide-img"
+                        />
+                    </div>
+                </div>
+
+                <!-- Slide 3-->
+                <div class="slide-3">
+                    <div class="slide-inner">
+                        <img
+                            src="./assets/images/hue/suoi.png"
+                            alt="スオイ・ヴォイ"
+                            class="slide-img"
+                        />
+                    </div>
+                </div>
+
+                <!-- Slide 4-->
+                <div class="slide-4">
+                    <div class="slide-inner">
+                        <img
+                            src="./assets/images/hue/com-hen.png"
+                            alt="コムヘン"
+                            class="slide-img"
+                        />
+                    </div>
+                </div>
+
+                <!-- Slide 5-->
+                <div class="slide-5">
+                    <div class="slide-inner">
+                        <img
+                            src="./assets/images/hue/bun-bo-hue.png"
+                            alt="ブンボーフエ"
+                            class="slide-img"
+                        />
+                    </div>
+                </div>
+            </div>
             <div class="container">
                 <div id="slide" class="slide-show">
                     <!-- Slide 1-->
@@ -143,17 +199,19 @@
                 <!-- Breadcrumb -->
                 <nav class="breadcrumb">
                     <a href="./hue.html" class="breadcrumb-link">フエ</a>
-                    <a href="hue-1.html" class="breadcrumb-link">文化と人々</a>
-                    <a href="hue-2.html" class="breadcrumb-link"
+                    <a href="./hue-1.html" class="breadcrumb-link"
+                        >文化と人々</a
+                    >
+                    <a href="./hue-2.html" class="breadcrumb-link"
                         >観光地 ＊ 名所</a
                     >
-                    <a href="hue-3.html" class="breadcrumb-link"
+                    <a href="./hue-3.html" class="breadcrumb-link"
                         >フエのグルメ</a
                     >
-                    <a href="hue-4.html" class="breadcrumb-link"
+                    <a href="./hue-4.html" class="breadcrumb-link"
                         >特産品とお土産</a
                     >
-                    <a href="hue-5.html" class="breadcrumb-link"
+                    <a href="./hue-5.html" class="breadcrumb-link"
                         >体験とアクティビティ</a
                     >
                 </nav>
@@ -263,6 +321,15 @@
                 controls: false,
                 autoplay: true,
                 autoplayTimeout: 7000,
+            });
+        </script>
+        <script>
+            const slideMobile = new Slidezy("#slide-mobile", {
+                items: 1,
+                loop: true,
+                controls: false,
+                autoplay: true,
+                autoplayTimeout: 5000,
             });
         </script>
     </body>
