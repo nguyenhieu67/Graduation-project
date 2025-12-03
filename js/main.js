@@ -290,53 +290,95 @@ document.addEventListener("DOMContentLoaded", () => {
     if (feature === "flip") initFlipCard();
 });
 
-// Handle blog
-const API_URL = "http://localhost:3000/posts";
+// Handle blog (LocalStorage only with default posts)
 
-// ===== API helpers =====
-async function fetchPosts() {
-    const res = await fetch(API_URL);
-    if (!res.ok) throw new Error("Failed to fetch posts");
-    return res.json();
+// ====== Default posts  ======
+const DEFAULT_POSTS = [
+    {
+        id: 1,
+        title: "ベトナム中部高原の魅力、ダクラク省",
+        content:
+            "ダクラク省はベトナム中部高原に位置し、雄大な自然と豊かな民族文化で知られています。特にバンメトートは「コーヒーの首都」と呼ばれ、世界的に高品質なコーヒーの産地として有名です。また、ヨックドン国立公園やドラエヌール滝など、手つかずの自然景観が多く、訪れる人々に癒やしと冒険を提供します。少数民族エデ族の伝統的な長屋や祭りは独自の文化体験として魅力的で、ダクラクは歴史・自然・文化の調和が息づく特別な場所です。",
+        author: "Admin",
+        avatar: "./assets/avatar/blog.JPG",
+        image: "./assets/images/daklak/daklak-4.4.png",
+        like: 0,
+        date: "2025年1月1日",
+        createdAt: "2025-01-01T00:00:00.000Z",
+    },
+    {
+        id: 2,
+        title: "海と港の活気あふれる都市、ハイフォン",
+        content:
+            "ハイフォンはベトナム北部を代表する港湾都市で、経済と文化が調和した活気に満ちた街です。主要な海の玄関口として国際貿易の中心的役割を担い、近代的な都市景観とフランス植民地時代の建築が美しく融合しています。また、カットバ島やランハ湾など、壮大な自然景観にも恵まれ、多くの観光客を魅了します。紅花の街としても知られ、春になると通りが鮮やかな花々で彩られます。ハイフォンは歴史、海、文化が息づく魅力的な都市です。",
+        author: "Admin",
+        avatar: "./assets/avatar/blog.JPG",
+        image: "./assets/images/haiphong/hai-phong-2.1.png",
+        like: 0,
+        date: "2025年1月2日",
+        createdAt: "2025-01-02T00:00:00.000Z",
+    },
+    {
+        id: 3,
+        title: "美しい海岸線とリゾートの街、ブンタウ",
+        content:
+            "ブンタウはホーチミン市から近く、週末旅行の人気スポットとして知られる海辺のリゾート都市です。長く続く美しいビーチと穏やかな海は、リラックスやマリンスポーツに最適で、多くの観光客を魅了します。市内にはキリスト像や灯台、古い寺院など見どころも多く、海と文化の両方を楽しめます。新鮮な海産物や独特の食文化もブンタウの大きな魅力で、訪れる人々に忘れられない体験を提供する街です。",
+        author: "Admin",
+        avatar: "./assets/avatar/blog.JPG",
+        image: "./assets/images/vungtau/trai-nghiem.jpg",
+        like: 0,
+        date: "2025年1月3日",
+        createdAt: "2025-01-03T00:00:00.000Z",
+    },
+];
+
+const STORAGE_KEY = "blog_posts_v1";
+
+// ===== LocalStorage helpers =====
+function getPosts() {
+    try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+
+        if (!raw) {
+            savePosts(DEFAULT_POSTS);
+            return [...DEFAULT_POSTS];
+        }
+
+        const data = JSON.parse(raw);
+        if (!Array.isArray(data) || data.length === 0) {
+            savePosts(DEFAULT_POSTS);
+            return [...DEFAULT_POSTS];
+        }
+
+        return data;
+    } catch (err) {
+        console.warn("Error reading posts from localStorage", err);
+        return [...DEFAULT_POSTS];
+    }
 }
 
-async function fetchPost(id) {
-    const res = await fetch(`${API_URL}/${id}`);
-    if (!res.ok) throw new Error("Failed to fetch post");
-    return res.json();
+function savePosts(posts) {
+    try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(posts));
+    } catch (err) {
+        console.warn("Error saving posts to localStorage", err);
+    }
 }
 
-async function createPost(post) {
-    const res = await fetch(API_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(post),
-    });
-    if (!res.ok) throw new Error("Failed to create post");
-    return res.json();
+function generateId(posts) {
+    if (!posts.length) return 1;
+    const maxId = posts.reduce((max, p) => {
+        const id = Number(p.id) || 0;
+        return id > max ? id : max;
+    }, 0);
+    return maxId + 1;
 }
 
-async function updatePost(id, data) {
-    const res = await fetch(`${API_URL}/${id}`, {
-        method: "PATCH",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-    });
-    if (!res.ok) throw new Error("Failed to update post");
-    return res.json();
-}
-
-async function deletePost(id) {
-    const res = await fetch(`${API_URL}/${id}`, {
-        method: "DELETE",
-    });
-    if (!res.ok) throw new Error("Failed to delete post");
-}
-
-// ===== UI render =====
+// ===== Render UI =====
 function createPostHTML(post) {
     const avatar = post.avatar || "./assets/avatar/blog.JPG";
     const imageSrc = post.image || "./assets/images/blog/blog-1.jpg";
+    const author = post.author || "Admin";
 
     let liked = false;
     try {
@@ -360,13 +402,13 @@ function createPostHTML(post) {
             <div class="blog-item__inner">
                 <img
                     src="${avatar}"
-                    alt="${post.author}"
+                    alt="${author}"
                     class="blog-item__avatar"
                 />
                 <div class="blog-item__info">
-                    <h3 class="blog-item__name">${post.author}</h3>
+                    <h3 class="blog-item__name">${author}</h3>
                     <p class="blog-item__publishedAt">
-                        ${post.date}
+                        ${post.date || ""}
                     </p>
                 </div>
             </div>
@@ -381,9 +423,9 @@ function createPostHTML(post) {
             </p>
 
             <div class="blog-item__actions">
-               <div class="blog-item__like ${liked ? "liked" : ""}" 
-                     data-action="like" 
-                     data-id="${post.id}">
+                <div class="blog-item__like ${liked ? "liked" : ""}" 
+                    data-action="like" 
+                    data-id="${post.id}">
                     <img
                         src="${
                             liked
@@ -414,18 +456,20 @@ function createPostHTML(post) {
     `;
 }
 
-async function renderPosts() {
-    const container = document.querySelector(".blog-lists");
+function renderPosts() {
+    const container = $(".blog-lists");
     if (!container) return;
 
-    try {
-        const posts = await fetchPosts();
-        posts.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
-        container.innerHTML = posts.map(createPostHTML).join("");
-    } catch (err) {
-        console.error(err);
-        container.innerHTML = `<p>記事の読み込みに失敗しました。</p>`;
+    const posts = getPosts().sort(
+        (a, b) => new Date(b.createdAt || 0) - new Date(a.createdAt || 0)
+    );
+
+    if (!posts.length) {
+        container.innerHTML = `<p>まだ投稿がありません。</p>`;
+        return;
     }
+
+    container.innerHTML = posts.map(createPostHTML).join("");
 }
 
 // ===== Image helper =====
@@ -438,16 +482,16 @@ function readImageAsBase64(file) {
     });
 }
 
-// ===== Form logic  =====
+// ===== Form logic (create + edit) =====
 function setupForm() {
-    const form = document.getElementById("post-form");
-    const titleInput = document.getElementById("title");
-    const contentInput = document.getElementById("content");
-    const fileInput = document.getElementById("image");
-    const idInput = document.getElementById("post-id");
-    const fileTrigger = document.getElementById("file-trigger");
-    const fileName = document.getElementById("file-name");
-    const preview = document.getElementById("preview");
+    const form = $("#post-form");
+    const titleInput = $("#title");
+    const contentInput = $("#content");
+    const fileInput = $("#image");
+    const idInput = $("#post-id");
+    const fileTrigger = $("#file-trigger");
+    const fileName = $("#file-name");
+    const preview = $("#preview");
 
     if (
         !form ||
@@ -458,12 +502,14 @@ function setupForm() {
         !fileName ||
         !preview
     ) {
-        console.warn("Form elements not found");
+        console.warn("Blog form elements not found");
         return;
     }
 
+    // mở dialog chọn file
     fileTrigger.addEventListener("click", () => fileInput.click());
 
+    // change file
     fileInput.addEventListener("change", () => {
         const file = fileInput.files[0];
 
@@ -484,6 +530,7 @@ function setupForm() {
         reader.readAsDataURL(file);
     });
 
+    // submit form
     form.addEventListener("submit", async (e) => {
         e.preventDefault();
 
@@ -501,141 +548,136 @@ function setupForm() {
             day: "numeric",
         });
 
-        try {
-            let base64Image = "";
-            if (file) {
+        let base64Image = "";
+        if (file) {
+            try {
                 base64Image = await readImageAsBase64(file);
+            } catch (err) {
+                console.error("Image convert error", err);
             }
-
-            if (editingId) {
-                // UPDATE
-                let existing = await fetchPost(editingId);
-                const finalImage = base64Image || existing.image || "";
-
-                await updatePost(editingId, {
-                    title,
-                    content,
-                    image: finalImage,
-                });
-            } else {
-                // CREATE
-                const newPost = {
-                    title,
-                    content,
-                    author: "Admin",
-                    createdAt: new Date().toISOString(),
-                    date,
-                    avatar: "./assets/avatar/blog.JPG",
-                    image: base64Image,
-                    like: 0,
-                };
-
-                await createPost(newPost);
-            }
-
-            await renderPosts();
-
-            form.reset();
-            idInput.value = "";
-            fileInput.value = "";
-            fileName.textContent = "ファイルが選択されていません";
-            preview.innerHTML = "";
-            preview.style.display = "none";
-        } catch (err) {
-            console.error(err);
-            alert("投稿に失敗しました。");
         }
+
+        const posts = getPosts();
+
+        if (editingId) {
+            // UPDATE
+            const idx = posts.findIndex(
+                (p) => String(p.id) === String(editingId)
+            );
+            if (idx !== -1) {
+                posts[idx] = {
+                    ...posts[idx],
+                    title,
+                    content,
+                    date,
+                    image: base64Image || posts[idx].image || "",
+                    updatedAt: new Date().toISOString(),
+                };
+            }
+        } else {
+            // CREATE
+            const newPost = {
+                id: generateId(posts),
+                title,
+                content,
+                author: "Admin",
+                avatar: "./assets/avatar/blog.JPG",
+                image: base64Image,
+                like: 0,
+                date,
+                createdAt: new Date().toISOString(),
+            };
+            posts.push(newPost);
+        }
+
+        savePosts(posts);
+        renderPosts();
+
+        // reset form
+        form.reset();
+        idInput.value = "";
+        fileInput.value = "";
+        fileName.textContent = "ファイルが選択されていません";
+        preview.innerHTML = "";
+        preview.style.display = "none";
     });
 }
 
-// ===== Actions list (Edit + Delete) =====
+// ===== Actions (like / edit / delete) =====
 function setupActions() {
-    const list = document.querySelector(".blog-lists");
-    const form = document.getElementById("post-form");
-    const titleInput = document.getElementById("title");
-    const contentInput = document.getElementById("content");
-    const idInput = document.getElementById("post-id");
-    const fileName = document.getElementById("file-name");
-    const preview = document.getElementById("preview");
+    const list = $(".blog-lists");
+    const form = $("#post-form");
+    const titleInput = $("#title");
+    const contentInput = $("#content");
+    const idInput = $("#post-id");
+    const fileName = $("#file-name");
+    const preview = $("#preview");
 
     if (!list) return;
 
-    list.addEventListener("click", async (e) => {
+    list.addEventListener("click", (e) => {
         const btn = e.target.closest("[data-action]");
         if (!btn) return;
 
         const id = btn.dataset.id;
         const action = btn.dataset.action;
 
-        // ===== LIKE =====
-        if (action === "like") {
-            const likeBox = btn;
-            const likeIcon = likeBox.querySelector(".blog-item__like--icon");
-            const key = `liked-${id}`;
+        const posts = getPosts();
+        const idx = posts.findIndex((p) => String(p.id) === String(id));
+        if (idx === -1) return;
 
+        // LIKE
+        if (action === "like") {
+            const key = `liked-${id}`;
             let liked = localStorage.getItem(key) === "true";
             liked = !liked;
 
-            if (liked) {
-                likeBox.classList.add("liked");
-                likeIcon.classList.add("liked");
-                likeIcon.src = "./assets/icon/heart-filled.svg";
-            } else {
-                likeBox.classList.remove("liked");
-                likeIcon.classList.remove("liked");
-                likeIcon.src = "./assets/icon/like.svg";
-            }
-
+            const currentLike = posts[idx].like || 0;
+            posts[idx].like = Math.max(currentLike + (liked ? 1 : -1), 0);
+            savePosts(posts);
             localStorage.setItem(key, liked);
 
-            try {
-                const post = await fetchPost(id);
-                const newLike = (post.like || 0) + (liked ? 1 : -1);
-                await updatePost(id, { like: Math.max(newLike, 0) });
-            } catch (err) {
-                console.error(err);
-            }
-
+            renderPosts();
             return;
         }
 
-        try {
-            if (action === "delete") {
-                await deletePost(id);
-                await renderPosts();
-                return;
+        // DELETE
+        if (action === "delete") {
+            if (!confirm("この記事を削除しますか？")) return;
+
+            const newPosts = posts.filter((p) => String(p.id) !== String(id));
+            savePosts(newPosts);
+            renderPosts();
+            return;
+        }
+
+        // EDIT
+        if (action === "edit") {
+            const post = posts[idx];
+
+            titleInput.value = post.title;
+            contentInput.value = post.content;
+            idInput.value = post.id;
+
+            if (post.image) {
+                preview.innerHTML = `<img src="${post.image}" alt="preview" />`;
+                preview.style.display = "flex";
+                fileName.textContent = "現在の画像が設定されています";
+            } else {
+                preview.innerHTML = "";
+                preview.style.display = "none";
+                fileName.textContent = "ファイルが選択されていません";
             }
 
-            if (action === "edit") {
-                const post = await fetchPost(id);
-
-                titleInput.value = post.title;
-                contentInput.value = post.content;
-                idInput.value = post.id;
-
-                if (post.image) {
-                    preview.innerHTML = `<img src="${post.image}" alt="preview" />`;
-                    preview.style.display = "flex";
-                    fileName.textContent = "現在の画像が設定されています";
-                } else {
-                    preview.innerHTML = "";
-                    preview.style.display = "none";
-                    fileName.textContent = "ファイルが選択されていません";
-                }
-
-                window.scrollTo({
-                    top: form.offsetTop - 80,
-                    behavior: "smooth",
-                });
-            }
-        } catch (err) {
-            console.error(err);
-            alert("操作に失敗しました。");
+            window.scrollTo({
+                top: form.offsetTop - 80,
+                behavior: "smooth",
+            });
         }
     });
 }
 
-// ===== Init =====
+// ===== Init blog feature =====
 document.addEventListener("DOMContentLoaded", () => {
     setupForm();
     setupActions();
