@@ -218,6 +218,11 @@
         position: relative;
         color: #333;
 
+        &:first-child,
+        &:last-child {
+            display: none;
+        }
+
         & + .menu__item {
             @include mixin.screen(md) {
                 margin-top: 8px;
@@ -401,6 +406,7 @@
         flex-direction: column;
         gap: 15px;
         padding: 20px;
+        height: 170px;
     }
 
     &__info {

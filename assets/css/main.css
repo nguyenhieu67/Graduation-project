@@ -1569,6 +1569,9 @@ strong {
   position: relative;
   color: #333;
 }
+.menu__item:first-child, .menu__item:last-child {
+  display: none;
+}
 @media (max-width: 767.98px) {
   .menu__item + .menu__item {
     margin-top: 8px;
@@ -1729,6 +1732,7 @@ strong {
   flex-direction: column;
   gap: 15px;
   padding: 20px;
+  height: 170px;
 }
 .hero__info {
   line-height: 150%;
