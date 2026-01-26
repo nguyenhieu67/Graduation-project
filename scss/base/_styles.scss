@@ -10,7 +10,21 @@
 }
 
 :root {
-    --line-height: 150%;
+    --primary-color: #da251d;
+    --secondary-color: #006747;
+    --accent-color: #ffcd00;
+
+    --bg-color: #f9fafb;
+    --card-bg: #ffffff;
+    --text-main: #1f2937;
+    --text-muted: #6b7280;
+    --border-color: #848588;
+
+    // Text
+    --thin: 100;
+    --light: 300;
+    --medium: 500;
+    --bold: 700;
 }
 
 html {
@@ -19,8 +33,10 @@ html {
 
 body {
     font-size: 1.6rem;
+    font-family: "Noto Sans JP", sans-serif;
 
     color: #fff;
+    line-height: 1.7;
 }
 
 a {
@@ -76,10 +92,9 @@ strong {
 }
 
 .main {
-    background: #abedfa;
+    background: #f4f1ea;
 
     color: #000;
-    padding: 50px 0;
 }
 
 .backToTop {

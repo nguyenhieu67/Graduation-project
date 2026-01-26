@@ -1,5 +1,9 @@
 @use "../mixin";
 
+.slide {
+    position: relative;
+}
+
 .slidezy-wrapper {
     width: 100%;
     overflow: hidden;
@@ -16,6 +20,7 @@
 .slidezy-slide {
     flex: 0 0 auto;
 }
+
 .slidezy-prev,
 .slidezy-next {
     position: absolute;
@@ -23,51 +28,45 @@
     transform: translateY(-50%);
     border: none;
     outline: none;
-    padding: 10px;
+    padding: 15px;
+    border-radius: 50%;
     color: #fff;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.2);
 }
 
 .slidezy-prev {
-    left: 0px;
+    left: 5px;
 }
 
 .slidezy-next {
-    right: 0px;
+    right: 5px;
 }
 
 .slidezy-nav {
+    position: absolute;
     display: flex;
     align-items: center;
     justify-content: start;
-    gap: 10px;
-    margin-top: 10px;
-    margin-left: 50px;
-
-    @include mixin.screen(lg) {
-        justify-content: center;
-        margin-top: 20px;
-        margin-left: 0;
-    }
+    bottom: 10px;
+    gap: 5px;
+    margin-left: 50%;
 }
 
 .slidezy-dot {
-    width: 30px;
-    height: 10px;
-    border-radius: 999px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
     border: none;
-    background: #ccc;
+    background: rgba($color: #fff, $alpha: 0.75);
     transition: transform 0.3s;
 
-    @include mixin.screen(lg) {
-        width: 20px;
+    &:hover {
+        background: #fff;
     }
 }
 
 .slidezy-dot.active {
-    margin: 0 5px;
-    background: #333;
-    transform: scaleX(1.5);
+    background: #fff;
 }
 
 // Custom slide style

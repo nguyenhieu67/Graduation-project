@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
@@ -36,60 +36,155 @@
             load("#header", "./templates/header.html");
         </script>
         <main class="main">
-            <div class="container">
-                <section class="about contact">
-                    <h1 class="about__heading">お問い合わせ</h1>
-                    <p class="about__desc contact__desc">
-                        ご意見やご感想をお聞かせください。このサイトをより良いものにするために、皆さまの声を大切にしています。
-                    </p>
+            <main class="main">
+                <div class="container">
+                    <section class="contact">
+                        <header class="contact__header">
+                            <h1 class="contact__title">お問い合わせ</h1>
+                            <p class="contact__desc">
+                                ベトナムについてのご質問や、プロジェクトへのご意見など、お気軽にお問い合わせください。
+                            </p>
+                        </header>
 
-                    <div class="row row-cols-2 row-cols-lg-1 g-lg-3">
-                        <div class="col">
-                            <div class="contact-right">
-                                <img
-                                    src="./assets/images/contact-1.jpg"
-                                    alt="Contact us"
-                                    class="about__img contact-right__img"
-                                />
-                                <h3 class="contact-right__title">チーム情報</h3>
-                                <p class="contact-right__desc">
-                                    私たちは、日本で学ぶベトナム出身の学生チームです。
-                                    それぞれの地域を紹介することで、ベトナムの魅力を広く伝えたいという想いからこのサイトを制作しました。
-                                    このプロジェクトが文化交流の架け橋となり、多くの人に笑顔を届けられたら嬉しいです。
-                                </p>
-                                <p class="contact-right__desc">
-                                    SNSやメールを通じていつでもご連絡ください。次の企画や地域紹介のリクエストもお待ちしています。
-                                </p>
+                        <div class="contact__content">
+                            <div class="contact__info">
+                                <div class="contact__card">
+                                    <img
+                                        src="./assets/images/contact-1.jpg"
+                                        alt="Contact team"
+                                        class="contact__card-img"
+                                    />
+                                    <h3 class="contact__card-title">
+                                        チーム情報
+                                    </h3>
+                                    <p class="contact__card-text">
+                                        私たちは日本で学ぶベトナム留学生のチームです。文化交流の架け橋となることを目指しています。
+                                    </p>
+
+                                    <ul class="contact__list">
+                                        <li class="contact__list-item">
+                                            <span class="contact__list-label"
+                                                >📍 所在地:</span
+                                            >
+                                            <span class="contact__list-value"
+                                                >日本、福岡県福岡市中央区天神４丁目５−５</span
+                                            >
+                                        </li>
+                                        <li class="contact__list-item">
+                                            <span class="contact__list-label"
+                                                >📧 メール:</span
+                                            >
+                                            <span class="contact__list-value"
+                                                >ckg23387@st.ckt.ac.jp</span
+                                            >
+                                        </li>
+                                        <li class="contact__list-item">
+                                            <span class="contact__list-label"
+                                                >📞 電話番号:</span
+                                            >
+                                            <span class="contact__list-value">
+                                                <a
+                                                    href="tel:+81000000000"
+                                                    class="contact__list-link"
+                                                    >+81 92 761 6036</a
+                                                >
+                                            </span>
+                                        </li>
+                                        <li class="contact__list-item">
+                                            <span class="contact__list-label"
+                                                >⏰ 受付時間:</span
+                                            >
+                                            <span class="contact__list-value"
+                                                >月〜金 9:00 - 18:00</span
+                                            >
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="contact__form-wrapper">
+                                <form action="#" class="contact-form">
+                                    <div class="contact-form__group">
+                                        <label
+                                            for="name"
+                                            class="contact-form__label"
+                                            >お名前
+                                            <span class="contact-form__required"
+                                                >必須</span
+                                            ></label
+                                        >
+                                        <input
+                                            type="text"
+                                            id="name"
+                                            class="contact-form__input"
+                                            placeholder="例：山田 太郎"
+                                            required
+                                        />
+                                    </div>
+
+                                    <div class="contact-form__group">
+                                        <label
+                                            for="email"
+                                            class="contact-form__label"
+                                            >メールアドレス
+                                            <span class="contact-form__required"
+                                                >必須</span
+                                            ></label
+                                        >
+                                        <input
+                                            type="email"
+                                            id="email"
+                                            class="contact-form__input"
+                                            placeholder="example@mail.com"
+                                            required
+                                        />
+                                    </div>
+
+                                    <div class="contact-form__group">
+                                        <label
+                                            for="message"
+                                            class="contact-form__label"
+                                            >メッセージ内容</label
+                                        >
+                                        <textarea
+                                            id="message"
+                                            class="contact-form__area"
+                                            rows="5"
+                                            placeholder="ご自由に入力してください"
+                                        ></textarea>
+                                    </div>
+
+                                    <div class="contact-form__privacy">
+                                        <label
+                                            class="contact-form__checkbox-label"
+                                        >
+                                            <input
+                                                type="checkbox"
+                                                class="contact-form__checkbox"
+                                                required
+                                            />
+                                            <span
+                                                class="contact-form__checkbox-text"
+                                                >個人情報の取り扱いに同意する</span
+                                            >
+                                        </label>
+                                        <p class="contact-form__note">
+                                            ※送信いただいた情報は、お問い合わせ対応のみに使用いたします。
+                                        </p>
+                                    </div>
+
+                                    <button
+                                        type="submit"
+                                        class="contact-form__btn"
+                                    >
+                                        メッセージを送信する
+                                    </button>
+                                </form>
                             </div>
                         </div>
-
-                        <div class="col form-contact">
-                            <form class="contact-form">
-                                <input
-                                    type="text"
-                                    name="name"
-                                    placeholder="お名前"
-                                    required
-                                />
-                                <input
-                                    type="email"
-                                    name="email"
-                                    placeholder="メールアドレス"
-                                    required
-                                />
-                                <textarea
-                                    name="message"
-                                    rows="5"
-                                    placeholder="メッセージを入力してください"
-                                ></textarea>
-                                <button type="submit" class="btn-contact">
-                                    送信
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-                </section>
-            </div>
+                    </section>
+                </div>
+            </main>
         </main>
 
         <!-- Footer -->

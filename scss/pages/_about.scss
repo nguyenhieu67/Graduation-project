@@ -6,14 +6,12 @@
     justify-content: center;
     align-items: center;
     // gap: 30px;
-    margin: -50px 0;
     padding: 30px;
-    background: #c9f7ff;
 
     &__heading {
         font-size: 4.8rem;
         font-weight: 700;
-        margin-top: 20px;
+        color: var(--secondary-color);
 
         @include mixin.screen(md) {
             font-size: 2.8rem;
@@ -35,7 +33,7 @@
     &__img {
         width: 700px;
         height: 400px;
-        border-radius: 16px;
+        border-radius: 8px;
         object-fit: cover;
 
         @include mixin.screen(lg) {
@@ -53,6 +51,12 @@
         }
     }
 
+    &__title {
+        font-size: 2rem;
+        font-weight: var(--medium);
+        color: var(--primary-color);
+    }
+
     &__text {
         margin-top: 16px;
         padding: 0 20px;
@@ -60,10 +64,110 @@
 
         font-weight: 400;
         line-height: 150%;
-        color: #333;
+        color: var(--text-muted);
 
         @include mixin.screen(lg) {
             width: 100%;
         }
+    }
+}
+
+// Table container
+.vietnam-facts {
+    margin-top: 60px;
+    padding: 30px;
+    background-color: #f9f9f9; /* Màu nền xám nhạt để tách biệt */
+    border-radius: 15px;
+
+    &__title {
+        color: var(--secondary-color);
+        font-weight: var(--bold);
+    }
+
+    &__table-wrapper {
+        overflow-x: auto; /* Hỗ trợ xem trên điện thoại */
+        margin-top: 20px;
+    }
+
+    &__table {
+        width: 100%;
+        border-collapse: collapse;
+        background: #fff;
+
+        & th,
+        & td {
+            padding: 15px 20px;
+            border-bottom: 1px solid #eee;
+            text-align: left;
+            font-size: 1.6rem;
+        }
+
+        & th {
+            width: 30%;
+            background-color: #da251d;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        & tr:hover {
+            background-color: var(--accent-color);
+        }
+    }
+}
+
+/* Responsive cho mobile */
+@media (max-width: 768px) {
+    .facts__table th {
+        width: 40%;
+        font-size: 1.4rem;
+    }
+    .facts__table td {
+        font-size: 1.4rem;
+    }
+}
+
+// Travel tips
+.travel-tips {
+    margin-top: 50px;
+    padding-bottom: 50px;
+
+    &__title {
+        margin-bottom: 16px;
+        font-size: 2.4rem;
+        text-align: center;
+        font-weight: var(--bold);
+    }
+
+    &__card {
+        background: #ffffff;
+        padding: 25px;
+        border-radius: 12px;
+        border-left: 6px solid #cff4fd; /* Màu xanh cyan của bạn làm điểm nhấn */
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease;
+
+        &:hover {
+            transform: translateY(-5px); /* Hiệu ứng nổi lên khi di chuột */
+        }
+    }
+
+    &__caption {
+        font-size: 1.8rem;
+        color: var(--text-main);
+        margin-bottom: 15px;
+        font-weight: bold;
+    }
+
+    &__text {
+        font-size: 1.4rem;
+        line-height: 1.7;
+        color: var(--text-muted);
+    }
+}
+
+/* Cho điện thoại thì xếp thành 1 cột */
+@media (max-width: 768px) {
+    .tips__grid {
+        grid-template-columns: 1fr;
     }
 }
