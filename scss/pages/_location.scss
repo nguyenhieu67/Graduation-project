@@ -1,10 +1,95 @@
 @use "../mixin";
 
+// User
+.user {
+    &__heading {
+        margin-bottom: 30px;
+        text-align: center;
+        font-size: 4.8rem;
+
+        background: linear-gradient(
+            135deg,
+            rgba(255, 97, 100, 1) 50%,
+            rgba(176, 0, 18, 1) 100%
+        );
+
+        color: transparent;
+        -webkit-background-clip: text;
+        background-clip: text;
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        border-radius: 20px;
+        background: #fff;
+    }
+
+    &__user {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    &__inner {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+    }
+
+    &__title {
+        font-size: 1.4rem;
+        margin: 10px 0 5px;
+        font-weight: var(--bold);
+    }
+
+    &__meta {
+        font-size: 1.1rem;
+        color: #555;
+        margin-bottom: 3px;
+    }
+
+    &__info {
+        line-height: 150%;
+        color: #333;
+    }
+
+    &__name {
+        font-weight: 700;
+    }
+
+    &__avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    &__img {
+        width: 100%;
+        height: 200px;
+        border-radius: 16px;
+        object-fit: cover;
+    }
+
+    &__desc {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+
+        font-size: 1.4rem;
+        color: var(--text-muted);
+    }
+}
+
+// Quick Filter
 .breadcrumb {
     display: flex;
     justify-content: center;
     gap: 24px;
-    margin: 20px;
+    padding: 30px;
 
     @include mixin.screen(lg) {
         flex-wrap: wrap;
@@ -16,6 +101,7 @@
         border-radius: 8px;
         background: #7bd4e6;
 
+        color: #fff;
         font-size: 1.8rem;
 
         @include mixin.screen(xl) {
@@ -28,12 +114,12 @@
 
         &.active {
             font-weight: 700;
-            color: #fff;
+            color: var(--primary-color);
             box-shadow: 0 2px 6px rgba(0, 100, 120, 0.25);
         }
 
         &.active::after {
-            color: #fff;
+            color: var(--primary-color);
         }
 
         &::after {
@@ -53,25 +139,32 @@
 }
 
 .content {
-    margin-top: 100px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 1fr 1fr;
+    gap: 30px;
+    grid-template-areas:
+        "item1 item1 item1 item2 item2 item2"
+        "item3 item3 item4 item4 item5 item5";
+    padding: 30px 0;
 
     @include mixin.screen(md) {
         margin-top: 50px;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+
+        grid-template-areas:
+            "item1"
+            "item2"
+            "item3"
+            "item4"
+            "item5";
     }
 
     &-item {
-        width: 80%;
-        padding: 30px;
+        padding: 20px;
         background: #fff;
         border-radius: 16px;
-
-        & + .content-item {
-            margin-top: 30px;
-        }
 
         @include mixin.screen(md) {
             padding: 16px;
@@ -79,9 +172,9 @@
         }
 
         &__img {
-            margin: 20px 0;
+            margin: 10px 0;
             width: 100%;
-            height: 400px;
+            height: 300px;
             border-radius: 10px;
             object-fit: cover;
 
@@ -92,14 +185,41 @@
 
         &__title {
             font-size: 2.4rem;
-            line-height: var(--line-height);
-            font-weight: 700;
+            font-weight: var(--bold);
+            color: var(--secondary-color);
         }
 
         &__desc {
             padding: 0 16px;
             font-size: 1.4rem;
-            line-height: var(--line-height);
+            color: var(--text-muted);
+
+            display: -webkit-box;
+            -webkit-line-clamp: 5;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
+    }
+}
+
+.content-item {
+    &-1 {
+        grid-area: item1;
+    }
+
+    &-2 {
+        grid-area: item2;
+    }
+
+    &-3 {
+        grid-area: item3;
+    }
+
+    &-4 {
+        grid-area: item4;
+    }
+
+    &-5 {
+        grid-area: item5;
     }
 }

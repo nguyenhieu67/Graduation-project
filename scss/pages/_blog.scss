@@ -5,24 +5,7 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    padding-bottom: 50px;
-
-    &__heading {
-        padding-top: 30px;
-        font-size: 4.8rem;
-        font-weight: var(--bold);
-        color: var(--secondary-color);
-    }
-
-    &__desc {
-        margin-top: 10px;
-        width: 60%;
-        font-size: 2rem;
-
-        @include mixin.screen(lg) {
-            width: 100%;
-        }
-    }
+    padding: 30px;
 
     &-lists {
         display: flex;
@@ -34,7 +17,7 @@
         width: 70%;
         display: flex;
         flex-direction: column;
-        background: #fff;
+        background: var(--card-bg);
         border-radius: 10px;
 
         @include mixin.screen(lg) {
@@ -84,7 +67,7 @@
         &__title {
             margin-top: 8px;
             font-size: 2.4rem;
-            line-height: var(--line-height);
+            color: var(--secondary-color);
         }
 
         &__desc {
@@ -95,8 +78,7 @@
             overflow: hidden;
 
             font-size: 1.4rem;
-            line-height: var(--line-height);
-            color: #333;
+            color: var(--text-muted);
 
             @include mixin.screen(md) {
                 -webkit-line-clamp: 2;
@@ -115,7 +97,9 @@
             min-width: 60px;
             height: 30px;
             border-radius: 8px;
+
             color: #fff;
+            font-weight: var(--medium);
             background-color: #ebebeb;
 
             + .blog-item__btn {
@@ -123,11 +107,11 @@
             }
 
             &--edit {
-                background-color: #65adf9;
+                background-color: var(--accent-color);
             }
 
             &--delete {
-                background-color: #fb8960;
+                background-color: var(--primary-color);
             }
         }
 

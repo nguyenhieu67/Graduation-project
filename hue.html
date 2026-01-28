@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
@@ -36,6 +36,7 @@
             load("#header", "./templates/header.html");
         </script>
         <main class="main">
+            <!-- Slider mobile -->
             <div id="slide-mobile" class="slide-show d-lg-block d-none">
                 <!-- Slide 1-->
                 <div class="slide-1">
@@ -92,110 +93,112 @@
                     </div>
                 </div>
             </div>
-            <div class="container">
-                <div id="slide" class="slide-show d-lg-none">
-                    <!-- Slide 1-->
-                    <div class="slide-1">
-                        <div class="slide-inner">
-                            <img
-                                src="./assets/images/hue/hue.png"
-                                alt="フエの王城"
-                                class="slide-img"
-                            />
-                            <div class="slide-info d-md-none">
-                                <p class="slide-title">フエの王城</p>
 
-                                <p class="slide-desc">
-                                    ベトナムの有名な歴史の場所,
-                                    フエの王城はフエ町の中心にあります。19世きのはじめに、ザーロン王
-                                    と ミンマン王
-                                    の時代に作られました。今ではフエの王城は世界中の観光客に人気の場所です。
-                                    そして、1993年にユネスコの世界文化いさんに登録されました。
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+            <!-- Slider -->
+            <div id="slide" class="slide slide-show d-lg-none">
+                <!-- Slide 1-->
+                <div class="slide-1">
+                    <div class="slide-inner">
+                        <img
+                            src="./assets/images/hue/hue.png"
+                            alt="フエの王城"
+                            class="slide-img"
+                        />
+                        <div class="slide-info d-md-none">
+                            <p class="slide-title">フエの王城</p>
 
-                    <!-- Slide 2-->
-                    <div class="slide-2">
-                        <div class="slide-inner">
-                            <img
-                                src="./assets/images/hue/cau-hue.png"
-                                alt="トゥオンティエン橋"
-                                class="slide-img"
-                            />
-                            <div class="slide-info d-md-none">
-                                <p class="slide-title">トゥオンティエン橋</p>
-
-                                <p class="slide-desc">
-                                    トゥオンティエン橋は、ベトナムのフエ市にある有名な橋です。この橋はフエの象徴の一つで、フォン川の上にかかっています。夜になると、橋は色とりどりのライトで美しく照らされ、多くの観光客が訪れます。
-                                    トゥオンティエン橋は、フエの歴史と文化を感じられる場所です。
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Slide 3-->
-                    <div class="slide-3">
-                        <div class="slide-inner">
-                            <img
-                                src="./assets/images/hue/suoi.png"
-                                alt="スオイ・ヴォイ"
-                                class="slide-img"
-                            />
-
-                            <div class="slide-info d-md-none">
-                                <p class="slide-title">スオイ・ヴォイ</p>
-
-                                <p class="slide-desc">
-                                    スオイ・ヴォイはフエ近くにある美しい自然の滝です。大きな岩が象の形をしていて、とても有名です。水がきれいで、泳いだり、休んだり、食事を楽しむことができます。
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Slide 4-->
-                    <div class="slide-4">
-                        <div class="slide-inner">
-                            <img
-                                src="./assets/images/hue/com-hen.png"
-                                alt="コムヘン"
-                                class="slide-img"
-                            />
-
-                            <div class="slide-info d-md-none">
-                                <p class="slide-title">コムヘン</p>
-
-                                <p class="slide-desc">
-                                    コムヘンは、ベトナム中部フエの名物料理です。
-                                    小さな貝とご飯をまぜて食べます。
-                                    ピリ辛で、安くておいしい庶民の味として、観光客にも好まれています。
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Slide 5-->
-                    <div class="slide-5">
-                        <div class="slide-inner">
-                            <img
-                                src="./assets/images/hue/bun-bo-hue.png"
-                                alt="ブンボーフエ"
-                                class="slide-img"
-                            />
-
-                            <div class="slide-info d-md-none">
-                                <p class="slide-title">ブンボーフエ</p>
-
-                                <p class="slide-desc">
-                                    ブンボーフエは、ベトナム中部フエの名物料理です。
-                                    牛肉とレモングラスの香りがある少し辛いスープの麺です。
-                                    太い麺と香草が入って、とてもおいしいです。
-                                </p>
-                            </div>
+                            <p class="slide-desc">
+                                ベトナムの有名な歴史の場所,
+                                フエの王城はフエ町の中心にあります。19世きのはじめに、ザーロン王
+                                と ミンマン王
+                                の時代に作られました。今ではフエの王城は世界中の観光客に人気の場所です。
+                                そして、1993年にユネスコの世界文化いさんに登録されました。
+                            </p>
                         </div>
                     </div>
                 </div>
+
+                <!-- Slide 2-->
+                <div class="slide-2">
+                    <div class="slide-inner">
+                        <img
+                            src="./assets/images/hue/cau-hue.png"
+                            alt="トゥオンティエン橋"
+                            class="slide-img"
+                        />
+                        <div class="slide-info d-md-none">
+                            <p class="slide-title">トゥオンティエン橋</p>
+
+                            <p class="slide-desc">
+                                トゥオンティエン橋は、ベトナムのフエ市にある有名な橋です。この橋はフエの象徴の一つで、フォン川の上にかかっています。夜になると、橋は色とりどりのライトで美しく照らされ、多くの観光客が訪れます。
+                                トゥオンティエン橋は、フエの歴史と文化を感じられる場所です。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 3-->
+                <div class="slide-3">
+                    <div class="slide-inner">
+                        <img
+                            src="./assets/images/hue/suoi.png"
+                            alt="スオイ・ヴォイ"
+                            class="slide-img"
+                        />
+
+                        <div class="slide-info d-md-none">
+                            <p class="slide-title">スオイ・ヴォイ</p>
+
+                            <p class="slide-desc">
+                                スオイ・ヴォイはフエ近くにある美しい自然の滝です。大きな岩が象の形をしていて、とても有名です。水がきれいで、泳いだり、休んだり、食事を楽しむことができます。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 4-->
+                <div class="slide-4">
+                    <div class="slide-inner">
+                        <img
+                            src="./assets/images/hue/com-hen.png"
+                            alt="コムヘン"
+                            class="slide-img"
+                        />
+
+                        <div class="slide-info d-md-none">
+                            <p class="slide-title">コムヘン</p>
+
+                            <p class="slide-desc">
+                                コムヘンは、ベトナム中部フエの名物料理です。
+                                小さな貝とご飯をまぜて食べます。
+                                ピリ辛で、安くておいしい庶民の味として、観光客にも好まれています。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 5-->
+                <div class="slide-5">
+                    <div class="slide-inner">
+                        <img
+                            src="./assets/images/hue/bun-bo-hue.png"
+                            alt="ブンボーフエ"
+                            class="slide-img"
+                        />
+
+                        <div class="slide-info d-md-none">
+                            <p class="slide-title">ブンボーフエ</p>
+
+                            <p class="slide-desc">
+                                ブンボーフエは、ベトナム中部フエの名物料理です。
+                                牛肉とレモングラスの香りがある少し辛いスープの麺です。
+                                太い麺と香草が入って、とてもおいしいです。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
                 <!-- Breadcrumb -->
                 <nav class="breadcrumb">
                     <a href="./hue.html" class="breadcrumb-link">フエ</a>
@@ -216,15 +219,15 @@
                     >
                 </nav>
                 <section class="content">
-                    <div class="content-item">
+                    <div class="content-item content-item-1">
                         <a href="./hue-1.html">
                             <h2 class="content-item__title">文化と人々</h2>
+                            <img
+                                src="./assets/images/hue/1-1.JPG"
+                                class="content-item__img"
+                                alt="フエの王城"
+                            />
                         </a>
-                        <img
-                            src="./assets/images/hue/1-1.JPG"
-                            class="content-item__img"
-                            alt="フエの王城"
-                        />
 
                         <p class="content-item__desc">
                             ベトナムの有名な歴史の場所,
@@ -235,15 +238,15 @@
                         </p>
                     </div>
 
-                    <div class="content-item">
+                    <div class="content-item content-item-2">
                         <a href="./hue-2.html">
                             <h2 class="content-item__title">観光地 ＊ 名所</h2>
+                            <img
+                                src="./assets/images/hue/2-1.PNG"
+                                class="content-item__img"
+                                alt="トゥオンティエン橋"
+                            />
                         </a>
-                        <img
-                            src="./assets/images/hue/2-1.PNG"
-                            class="content-item__img"
-                            alt="トゥオンティエン橋"
-                        />
 
                         <p class="content-item__desc">
                             トゥオンティエン橋は、ベトナムのフエ市にある有名な橋です。この橋はフエの象徴の一つで、フォン川の上にかかっています。夜になると、橋は色とりどりのライトで美しく照らされ、多くの観光客が訪れます。
@@ -251,30 +254,30 @@
                         </p>
                     </div>
 
-                    <div class="content-item">
+                    <div class="content-item content-item-3">
                         <a href="./hue-3.html">
                             <h2 class="content-item__title">フエのグルメ</h2>
+                            <img
+                                src="./assets/images/hue/3-1.JPG"
+                                class="content-item__img"
+                                alt=" スオイ・ヴォイ"
+                            />
                         </a>
-                        <img
-                            src="./assets/images/hue/3-1.JPG"
-                            class="content-item__img"
-                            alt=" スオイ・ヴォイ"
-                        />
 
                         <p class="content-item__desc">
                             スオイ・ヴォイはフエ近くにある美しい自然の滝です。大きな岩が象の形をしていて、とても有名です。水がきれいで、泳いだり、休んだり、食事を楽しむことができます。
                         </p>
                     </div>
 
-                    <div class="content-item">
+                    <div class="content-item content-item-4">
                         <a href="./hue-4.html">
                             <h2 class="content-item__title">特産品とお土産</h2>
+                            <img
+                                src="./assets/images/hue/4-1.JPG"
+                                class="content-item__img"
+                                alt="コムヘン"
+                            />
                         </a>
-                        <img
-                            src="./assets/images/hue/4-1.JPG"
-                            class="content-item__img"
-                            alt="コムヘン"
-                        />
 
                         <p class="content-item__desc">
                             コムヘンは、ベトナム中部フエの名物料理です。
@@ -283,17 +286,17 @@
                         </p>
                     </div>
 
-                    <div class="content-item">
+                    <div class="content-item content-item-5">
                         <a href="./hue-5.html">
                             <h2 class="content-item__title">
                                 体験とアクティビティ
                             </h2>
+                            <img
+                                src="./assets/images/hue/5-1.jpg"
+                                class="content-item__img"
+                                alt=" ブンボーフエ"
+                            />
                         </a>
-                        <img
-                            src="./assets/images/hue/5-1.jpg"
-                            class="content-item__img"
-                            alt=" ブンボーフエ"
-                        />
 
                         <p class="content-item__desc">
                             ブンボーフエは、ベトナム中部フエの名物料理です。
@@ -320,7 +323,7 @@
                 loop: true,
                 controls: false,
                 autoplay: true,
-                autoplayTimeout: 7000,
+                autoplayTimeout: 3000,
             });
         </script>
         <script>
@@ -329,7 +332,7 @@
                 loop: true,
                 controls: false,
                 autoplay: true,
-                autoplayTimeout: 5000,
+                autoplayTimeout: 3000,
             });
         </script>
     </body>

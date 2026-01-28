@@ -32,7 +32,7 @@
     }
 
     &__title {
-        color: var(--text-main);
+        color: var(--primary-color);
         font-weight: 700;
     }
 }
@@ -71,23 +71,32 @@
             color: var(--primary-color);
 
             @include mixin.screen(md) {
-                color: var(--primary-color);
+                color: var(--secondary-color);
+                text-shadow:
+                    0.5px 0 0 currentColor,
+                    -0.5px 0 0 currentColor;
             }
         }
 
         &.active .navbar__link {
             color: var(--primary-color);
+            @include mixin.screen(md) {
+                color: var(--secondary-color);
+                text-shadow:
+                    0.5px 0 0 currentColor,
+                    -0.5px 0 0 currentColor;
+            }
         }
     }
 
     &__link {
         position: relative;
-        font-size: 1.8rem;
+        font-size: 2.4rem;
         color: var(--text-main);
-        padding: 17px 10px;
+        padding: 18px 10px;
 
         @include mixin.screen(md) {
-            color: #000;
+            color: var(--secondary-color);
         }
 
         &--icon {
@@ -114,7 +123,8 @@
         right: 30px;
         padding: 10px;
 
-        font-size: 2.4rem;
+        font-size: 2.8rem;
+        color: var(--primary-color);
     }
 
     &-menu {
@@ -196,7 +206,7 @@
 
 .menu {
     position: absolute;
-    top: 37px;
+    top: 44px;
     left: 15px;
     display: none;
     width: 140px;
@@ -248,7 +258,7 @@
             background: #ebeef1;
 
             @include mixin.screen(md) {
-                color: initial;
+                color: #007aff;
                 background: initial;
             }
         }
@@ -268,7 +278,8 @@
             padding: 10px;
 
             border-bottom: none;
-            color: #000;
+            font-size: 1.8rem;
+            color: #007aff;
 
             &::after {
                 content: "▸";
@@ -292,7 +303,7 @@
     @include mixin.screen(md) {
         position: initial;
         margin-left: 15px;
-        border-left: 1px solid #333;
+        border-left: 1px solid var(--primary-color);
         background: #fff;
     }
 
@@ -306,7 +317,7 @@
             padding: 10px;
 
             border-bottom: none;
-            color: #000;
+            color: var(--accent-color);
         }
 
         &:hover {

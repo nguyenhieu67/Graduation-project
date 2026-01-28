@@ -1,3 +1,5 @@
+@use "../mixin";
+
 // Hero
 .hero {
     position: relative;
@@ -7,14 +9,25 @@
         width: 100%;
         height: calc(100vh - 54px);
         object-fit: cover;
+
+        @include mixin.screen(md) {
+            height: calc(100vh - 70px);
+        }
     }
 
     &__inner {
         position: absolute;
         top: 50%;
-        left: 30%;
+        left: 35%;
         transform: translate(-50%, -50%);
         color: #fff;
+
+        @include mixin.screen(md) {
+            left: 45%;
+        }
+        @include mixin.screen(sm) {
+            left: 50%;
+        }
     }
 
     &__heading {
@@ -23,6 +36,14 @@
         gap: 8px;
         font-size: 3.8rem;
         font-weight: var(--bold);
+
+        @include mixin.screen(md) {
+            font-size: 3rem;
+        }
+
+        @include mixin.screen(sm) {
+            font-size: 2.2rem;
+        }
     }
 
     &__icon {
@@ -32,8 +53,13 @@
     }
 
     &__desc {
+        margin-top: 8px;
         font-size: 2rem;
         font-weight: var(--medium);
+
+        @include mixin.screen(sm) {
+            font-size: 1.8rem;
+        }
     }
 }
 
@@ -65,6 +91,10 @@
     }
     &__desc {
         width: 70%;
+
+        @include mixin.screen(md) {
+            width: 100%;
+        }
     }
     &__list {
         margin-left: 15px;
@@ -85,12 +115,52 @@
 
     &__thumb {
         width: 50%;
-        height: 700px;
+        height: 650px;
     }
     &__img {
         display: block;
         width: 100%;
         height: 100%;
+    }
+
+    &__point {
+        @include mixin.screen(md) {
+            font-size: 1.4rem;
+        }
+    }
+}
+
+.introduce-mobile {
+    margin-top: 20px;
+
+    &__wrap {
+        margin-left: 30px;
+    }
+
+    &__thumb {
+        display: flex;
+        gap: 10px;
+        height: 400px;
+        width: inherit;
+    }
+
+    &__content {
+        margin-left: 0;
+        &-thumb {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        &-img {
+            width: 150px;
+            height: 150px;
+
+            @include mixin.screen(sm) {
+                width: 100px;
+                height: 100px;
+            }
+        }
     }
 }
 
@@ -103,6 +173,10 @@
         text-align: center;
         font-size: 2rem;
         font-weight: var(--bold);
+
+        @include mixin.screen(md) {
+            font-size: 1.8rem;
+        }
     }
 
     &__card {
@@ -138,11 +212,18 @@
     }
 
     &__thumb {
-        height: 550px;
+        position: relative;
+        padding-top: 115%;
+
+        @include mixin.screen(md) {
+            padding-top: 58%;
+        }
     }
 
     &__img {
-        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
         width: 100%;
         height: 100%;
         object-fit: cover;
@@ -154,7 +235,7 @@
 .history {
     padding: 50px 0;
     &__wrap {
-        width: 100vw;
+        width: calc(100vw - 0px);
         position: relative;
         left: 50%;
         right: 50%;
@@ -175,13 +256,17 @@
 
     &__title {
         position: absolute;
-        top: 49.5%;
+        top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
 
         font-size: 3.2rem;
         color: var(--primary-color);
         font-weight: var(--bold);
+
+        @include mixin.screen(sm) {
+            font-size: 2.4rem;
+        }
     }
 
     &__card {
@@ -208,6 +293,10 @@
 
     &__img-wrap {
         height: 300px;
+
+        @include mixin.screen(md) {
+            height: 200px;
+        }
     }
 
     &__img {
@@ -218,76 +307,31 @@
     }
 }
 
-// User
-.user {
-    &__heading {
-        margin-bottom: 30px;
-        text-align: center;
-        font-size: 4.8rem;
+// Slider custom css
+.custom-nav {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    gap: 5px;
+}
 
-        background: linear-gradient(
-            135deg,
-            rgba(255, 97, 100, 1) 50%,
-            rgba(176, 0, 18, 1) 100%
-        );
+.custom-dot {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: none;
+    background: rgba($color: #fff, $alpha: 0.75);
+    transition: transform 0.3s;
 
-        color: transparent;
-        -webkit-background-clip: text;
-        background-clip: text;
-    }
-
-    &__item {
-        display: flex;
-        flex-direction: column;
-        border-radius: 20px;
+    &.active {
         background: #fff;
     }
 
-    &__user {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-    }
-
-    &__inner {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-        padding: 20px;
-        height: 170px;
-    }
-
-    &__info {
-        line-height: 150%;
-        color: #333;
-    }
-
-    &__name {
-        font-weight: 700;
-    }
-
-    &__avatar {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        object-fit: cover;
-    }
-
-    &__img {
-        width: 100%;
-        height: 200px;
-        border-radius: 16px;
-        object-fit: cover;
-    }
-
-    &__desc {
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-
-        font-size: 1.4rem;
-        line-height: 150%;
-        color: #000;
+    &:hover {
+        background: #fff;
     }
 }

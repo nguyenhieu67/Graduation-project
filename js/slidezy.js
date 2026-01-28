@@ -20,8 +20,10 @@ class Slidezy {
                 autoplay: false,
                 autoplayTimeout: 3000,
                 autoplayHoverPause: true,
+                customNav: null,
+                customDot: null,
             },
-            options
+            options,
         );
         this.originalSlides = Array.from(this.container.children);
         this.slides = this.originalSlides.slice(0);
@@ -151,14 +153,18 @@ class Slidezy {
 
     _createNav() {
         this.navWrapper = document.createElement("div");
-        this.navWrapper.className = "slidezy-nav";
+        this.opt.customNav
+            ? (this.navWrapper.className = this.opt.customNav)
+            : (this.navWrapper.className = "slidezy-nav");
 
         const slideCount = this._getSlideCount();
         const pageCount = Math.ceil(slideCount / this.opt.items);
 
         for (let i = 0; i < pageCount; i++) {
             const dot = document.createElement("button");
-            dot.className = "slidezy-dot";
+            this.opt.customDot
+                ? (dot.className = this.opt.customDot)
+                : (dot.className = "slidezy-dot");
 
             if (i === 0) dot.classList.add("active");
 
@@ -183,7 +189,7 @@ class Slidezy {
 
         this.currentIndex = Math.min(
             Math.max(this.currentIndex + step, 0),
-            maxIndex
+            maxIndex,
         );
 
         setTimeout(() => {

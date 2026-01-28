@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
@@ -36,6 +36,7 @@
             load("#header", "./templates/header.html");
         </script>
         <main class="main">
+            <!-- Slider mobile -->
             <div id="slide-mobile" class="slide-show d-lg-block d-none">
                 <div class="slide-1">
                     <div class="slide-inner">
@@ -83,103 +84,105 @@
                     </div>
                 </div>
             </div>
-            <div class="container">
-                <div id="slide" class="slide-show d-lg-none">
-                    <div class="slide-1">
-                        <div class="slide-inner">
-                            <img
-                                src="./assets/images/daklak/phong-don.jpg"
-                                alt="ブオンドンや高原地方"
-                                class="slide-img"
-                            />
-                            <div class="slide-info d-md-none">
-                                <p class="slide-title">
-                                    バンメトートのブオンドンや高原地方
-                                </p>
 
-                                <p class="slide-desc">
-                                    バンメトートのブオンドンや高原地方では、伝統的なゴングの祭りが行われます。
-                                    人々が火を囲んで踊り、音楽とともに自然と調和した文化を感じることができます
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="slide-2">
-                        <div class="slide-inner">
-                            <img
-                                src="./assets/images/daklak/daklak-2.2.png"
-                                alt="ドライヌール滝"
-                                class="slide-img"
-                            />
-                            <div class="slide-info d-md-none">
-                                <p class="slide-title">ドライヌール滝</p>
+            <!-- Slider -->
+            <div id="slide" class="slide slide-show d-lg-none">
+                <div class="slide-1">
+                    <div class="slide-inner">
+                        <img
+                            src="./assets/images/daklak/phong-don.jpg"
+                            alt="ブオンドンや高原地方"
+                            class="slide-img"
+                        />
+                        <div class="slide-info d-md-none">
+                            <p class="slide-title">
+                                バンメトートのブオンドンや高原地方
+                            </p>
 
-                                <p class="slide-desc">
-                                    ドライヌール滝は、ベトナム・ダクラク省にある壮大な滝です。
-                                    高さ約30メートル、幅約250メートルの水が力強く流れ落ちる姿は、とても迫力があります
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="slide-3">
-                        <div class="slide-inner">
-                            <img
-                                src="./assets/images/daklak/quan-ca-phe.jpg"
-                                alt="バンメトートコーヒー博物館"
-                                class="slide-img"
-                            />
-
-                            <div class="slide-info d-md-none">
-                                <p class="slide-title">
-                                    バンメトートコーヒー博物館
-                                </p>
-
-                                <p class="slide-desc">
-                                    バンメトートコーヒー博物館は、コーヒーの文化と歴史を紹介する美しい建物です。
-                                    独特な建築デザインが印象的で、写真撮影にも人気のスポットです
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="slide-4">
-                        <div class="slide-inner">
-                            <img
-                                src="./assets/images/daklak/bun-do.png"
-                                alt="ブオンマトートの名物料理「ブン・ドー」"
-                                class="slide-img"
-                            />
-
-                            <div class="slide-info d-md-none">
-                                <p class="slide-title">
-                                    ブオンマトートの名物料理「ブン・ドー」
-                                </p>
-
-                                <p class="slide-desc">
-                                    ブオンマトートの名物料理「ブン・ドー」は、赤いスープが特徴の麺料理です。
-                                    カニや豚肉のうまみがつまったスープが人気です
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="slide-5">
-                        <div class="slide-inner">
-                            <img
-                                src="./assets/images/daklak/ca-phe.png"
-                                alt="バンメトート"
-                                class="slide-img"
-                            />
-
-                            <div class="slide-info d-md-none">
-                                <p class="slide-title">バンメトート</p>
-
-                                <p class="slide-desc">
-                                    バンメトートは、ベトナムで有名なコーヒーの町です。
-                                    香り高いコーヒーを味わいながら、静かな時間を楽しめます
-                                </p>
-                            </div>
+                            <p class="slide-desc">
+                                バンメトートのブオンドンや高原地方では、伝統的なゴングの祭りが行われます。
+                                人々が火を囲んで踊り、音楽とともに自然と調和した文化を感じることができます
+                            </p>
                         </div>
                     </div>
                 </div>
+                <div class="slide-2">
+                    <div class="slide-inner">
+                        <img
+                            src="./assets/images/daklak/daklak-2.2.png"
+                            alt="ドライヌール滝"
+                            class="slide-img"
+                        />
+                        <div class="slide-info d-md-none">
+                            <p class="slide-title">ドライヌール滝</p>
+
+                            <p class="slide-desc">
+                                ドライヌール滝は、ベトナム・ダクラク省にある壮大な滝です。
+                                高さ約30メートル、幅約250メートルの水が力強く流れ落ちる姿は、とても迫力があります
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-3">
+                    <div class="slide-inner">
+                        <img
+                            src="./assets/images/daklak/quan-ca-phe.jpg"
+                            alt="バンメトートコーヒー博物館"
+                            class="slide-img"
+                        />
+
+                        <div class="slide-info d-md-none">
+                            <p class="slide-title">
+                                バンメトートコーヒー博物館
+                            </p>
+
+                            <p class="slide-desc">
+                                バンメトートコーヒー博物館は、コーヒーの文化と歴史を紹介する美しい建物です。
+                                独特な建築デザインが印象的で、写真撮影にも人気のスポットです
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-4">
+                    <div class="slide-inner">
+                        <img
+                            src="./assets/images/daklak/bun-do.png"
+                            alt="ブオンマトートの名物料理「ブン・ドー」"
+                            class="slide-img"
+                        />
+
+                        <div class="slide-info d-md-none">
+                            <p class="slide-title">
+                                ブオンマトートの名物料理「ブン・ドー」
+                            </p>
+
+                            <p class="slide-desc">
+                                ブオンマトートの名物料理「ブン・ドー」は、赤いスープが特徴の麺料理です。
+                                カニや豚肉のうまみがつまったスープが人気です
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-5">
+                    <div class="slide-inner">
+                        <img
+                            src="./assets/images/daklak/ca-phe.png"
+                            alt="バンメトート"
+                            class="slide-img"
+                        />
+
+                        <div class="slide-info d-md-none">
+                            <p class="slide-title">バンメトート</p>
+
+                            <p class="slide-desc">
+                                バンメトートは、ベトナムで有名なコーヒーの町です。
+                                香り高いコーヒーを味わいながら、静かな時間を楽しめます
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
                 <!-- Breadcrumb -->
                 <nav class="breadcrumb">
                     <a href="./daklak.html" class="breadcrumb-link">ダクラク</a>
@@ -200,79 +203,79 @@
                     >
                 </nav>
                 <section class="content">
-                    <div class="content-item">
+                    <div class="content-item content-item-1">
                         <a href="./daklak-1.html">
                             <h2 class="content-item__title">文化と人々</h2>
+                            <img
+                                src="./assets/images/daklak/daklak-1.1.png"
+                                class="content-item__img"
+                                alt="民族の多様性と共生"
+                            />
                         </a>
-                        <img
-                            src="./assets/images/daklak/daklak-1.1.png"
-                            class="content-item__img"
-                            alt="民族の多様性と共生"
-                        />
 
                         <p class="content-item__desc">
                             ダクラク省は多民族が共に暮らす地域で、エデ族をはじめ、ジャライ族、ムノン族などが独自の言語と伝統を守りながら共生しています。特にエデ族の伝統家屋「ロンハウス」は、女性を中心に家族が暮らす独特の文化背景を持ち、長く伸びる木造構造が特徴です。また、ユネスコ無形文化遺産にも登録されたゴング音楽は、祭りや儀式で神々へ祈りを捧げる重要な役割を担い、大地に響くリズムは訪れる人々を魅了します。広大なコーヒー農園では、多くの人々が豊かな自然と共に働き、収穫の季節には香ばしい香りが町全体を包み込みます。精霊信仰が色濃く残り、森や湖は神聖な場所として大切にされています。
                         </p>
                     </div>
 
-                    <div class="content-item">
+                    <div class="content-item content-item-2">
                         <a href="./daklak-2.html">
                             <h2 class="content-item__title">観光地 ＊ 名所</h2>
+                            <img
+                                src="./assets/images/daklak/daklak-2.1.png"
+                                class="content-item__img"
+                                alt="ドンエレク湖"
+                            />
                         </a>
-                        <img
-                            src="./assets/images/daklak/daklak-2.1.png"
-                            class="content-item__img"
-                            alt="ドンエレク湖"
-                        />
 
                         <p class="content-item__desc">
                             ドンエレク湖は静かな湖畔の景色が美しく、象に乗って湖を散策する体験が人気です。ドライヌール滝は迫力ある水しぶきとマイナスイオンが心身を癒し、コーヒー博物館ではベトナムのコーヒー文化の歴史を学べます。バンメトート市街は活気あるマーケットやカフェが集まり、民族村では伝統工芸や暮らしを間近で体感できます。
                         </p>
                     </div>
 
-                    <div class="content-item">
+                    <div class="content-item content-item-3">
                         <a href="./daklak-3.html">
                             <h2 class="content-item__title">
                                 ダクラクのグルメ
                             </h2>
+                            <img
+                                src="./assets/images/daklak/daklak-3.1.png"
+                                class="content-item__img"
+                                alt=" ダクラクコーヒー"
+                            />
                         </a>
-                        <img
-                            src="./assets/images/daklak/daklak-3.1.png"
-                            class="content-item__img"
-                            alt=" ダクラクコーヒー"
-                        />
 
                         <p class="content-item__desc">
                             ダクラクコーヒーは深いコクと香りが特徴で、山のスープ料理や竹包みご飯、発酵魚ソース料理など、自然の恵みを活かした味が楽しめます。トロピカルフルーツと蜂蜜も絶品です。
                         </p>
                     </div>
 
-                    <div class="content-item">
+                    <div class="content-item content-item-4">
                         <a href="./daklak-4.html">
                             <h2 class="content-item__title">特産品とお土産</h2>
+                            <img
+                                src="./assets/images/daklak/daklak-4.1.png"
+                                class="content-item__img"
+                                alt="コーヒー豆とドリップセット"
+                            />
                         </a>
-                        <img
-                            src="./assets/images/daklak/daklak-4.1.png"
-                            class="content-item__img"
-                            alt="コーヒー豆とドリップセット"
-                        />
 
                         <p class="content-item__desc">
                             コーヒー豆やドリップセット、天然蜂蜜、民族手織り布、竹細工、ハーブティーなど高原ならではのお土産がそろいます。
                         </p>
                     </div>
 
-                    <div class="content-item">
+                    <div class="content-item content-item-5">
                         <a href="./daklak-5.html">
                             <h2 class="content-item__title">
                                 体験とアクティビティ
                             </h2>
+                            <img
+                                src="./assets/images/daklak/daklak-5.1.png"
+                                class="content-item__img"
+                                alt="コーヒー農園ツアー"
+                            />
                         </a>
-                        <img
-                            src="./assets/images/daklak/daklak-5.1.png"
-                            class="content-item__img"
-                            alt="コーヒー農園ツアー"
-                        />
 
                         <p class="content-item__desc">
                             コーヒー農園ツアー、滝のハイキング、ゴング演奏や伝統料理の体験など、五感で楽しめるアクティビティが充実しています。
@@ -297,7 +300,7 @@
                 loop: true,
                 controls: false,
                 autoplay: true,
-                autoplayTimeout: 5000,
+                autoplayTimeout: 3000,
             });
         </script>
 
@@ -307,7 +310,7 @@
                 loop: true,
                 controls: false,
                 autoplay: true,
-                autoplayTimeout: 5000,
+                autoplayTimeout: 3000,
             });
         </script>
     </body>
