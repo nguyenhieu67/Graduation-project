@@ -1470,7 +1470,7 @@ strong {
 }
 .navbar__link {
   position: relative;
-  font-size: 2.4rem;
+  font-size: 2rem;
   color: var(--text-main);
   padding: 18px 10px;
 }
@@ -2049,7 +2049,7 @@ strong {
   padding: 50px 0;
 }
 .history__wrap {
-  width: calc(100vw - 0px);
+  width: calc(100vw - 8px);
   position: relative;
   left: 50%;
   right: 50%;
@@ -2057,6 +2057,11 @@ strong {
   margin-right: -50vw;
   overflow: hidden;
   margin-bottom: 20px;
+}
+@media (max-width: 767.98px) {
+  .history__wrap {
+    width: 100vw;
+  }
 }
 .history__top-img {
   display: block;

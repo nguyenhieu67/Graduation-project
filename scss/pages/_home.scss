@@ -235,7 +235,7 @@
 .history {
     padding: 50px 0;
     &__wrap {
-        width: calc(100vw - 0px);
+        width: calc(100vw - 8px);
         position: relative;
         left: 50%;
         right: 50%;
@@ -245,6 +245,10 @@
         overflow: hidden;
 
         margin-bottom: 20px;
+
+        @include mixin.screen(md) {
+            width: 100vw;
+        }
     }
 
     &__top-img {
